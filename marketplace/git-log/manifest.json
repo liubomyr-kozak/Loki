@@ -1,0 +1,8 @@
+{
+  "id": "git-log",
+  "name": "Git Log",
+  "version": "1.0.0",
+  "description": "Shows the last 20 commits of the app repo in a tmux window",
+  "risk": "runs a shell command",
+  "surfaces": ["menu"]
+}

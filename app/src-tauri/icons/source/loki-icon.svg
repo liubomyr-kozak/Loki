@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Loki app icon. macOS grid: 824px tile on a 1024 canvas, shadow inside the canvas.
+       Dark bezel with a rim, an inset emerald well with soft glows, and the Loki glyph. -->
+  <defs>
+  <linearGradient id="bez" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3f44"/><stop offset=".5" stop-color="#1b1e21"/><stop offset="1" stop-color="#0e1012"/></linearGradient>
+  <linearGradient id="bezRim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".4" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity=".14"/></linearGradient>
+  <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2ffe9"/><stop offset="1" stop-color="#6fe596"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000" flood-opacity=".4"/></filter>
+  <filter id="inner" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity=".7"/></filter>
+  <filter id="bloom" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="20"/></filter>
+  <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="40"/></filter>
+  <radialGradient id="neb" cx=".4" cy=".35" r=".85"><stop offset="0" stop-color="#1f7a4a"/><stop offset=".55" stop-color="#0f3d2a"/><stop offset="1" stop-color="#061a12"/></radialGradient><clipPath id="c1"><rect x="190" y="190" width="644" height="644" rx="140"/></clipPath></defs><rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bez)" filter="url(#shadow)"/>
+  <rect x="102" y="102" width="820" height="820" rx="183" fill="none" stroke="url(#bezRim)" stroke-width="4"/>
+  <rect x="190" y="190" width="644" height="644" rx="140" fill="url(#neb)" filter="url(#inner)"/>
+  <g clip-path="url(#c1)"><circle cx="640" cy="330" r="260" fill="#47e083" opacity=".45" filter="url(#soft)"/><circle cx="340" cy="720" r="220" fill="#0d6b5c" opacity=".7" filter="url(#soft)"/></g>
+  <rect x="191.5" y="191.5" width="641" height="641" rx="138.5" fill="none" stroke="#9cf5bb" stroke-opacity=".28" stroke-width="3"/>
+  <g transform="translate(512 520) scale(0.82) translate(-512 -520)" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="54">
+  <g stroke="#3ee07a" opacity=".7" filter="url(#bloom)"><path d="M282 342H742L512 726Z"/><path d="M410 342L512 520L614 342"/></g>
+  <g stroke="url(#ink)" ><path d="M282 342H742L512 726Z"/><path d="M410 342L512 520L614 342"/></g></g></svg>

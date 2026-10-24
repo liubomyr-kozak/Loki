@@ -1,0 +1,8 @@
+{
+  "id": "proxy-toggle",
+  "name": "Proxy Toggle",
+  "version": "1.0.0",
+  "description": "Independent per-app toggle that runs a command with {toggleState}",
+  "risk": "runs a shell command",
+  "surfaces": ["list", "dock"]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "git-actions",
+  "name": "Git Actions",
+  "version": "1.0.0",
+  "description": "Pull, push, fetch, stash and dirty-status for the app's repo",
+  "surfaces": ["list", "dock", "menu"],
+  "requiresConfig": false
+}

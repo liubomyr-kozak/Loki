@@ -1,0 +1,56 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "loki-orchestrator",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": [
+        "start"
+      ],
+      "port": 9999,
+      "autoPort": true
+    },
+    {
+      "name": "loki-fixture-backend",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "CONFIG_FILE=/Users/Liubomyr_Kozak/Workspace/Playground/Loki/.sheriff/tasks/TASK-2026-08-01-desktop-loki-1-checkout-2-ui-e/fixtures/orchestrator.json LOKI_PORT=9999 yarn start"
+      ],
+      "port": 9999,
+      "autoPort": false
+    },
+    {
+      "name": "web-dev",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": [
+        "dev"
+      ],
+      "port": 5173,
+      "cwd": "web",
+      "autoPort": true
+    },
+    {
+      "name": "desktop-dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "vite"
+      ],
+      "port": 1421,
+      "cwd": "desktop",
+      "autoPort": false
+    },
+    {
+      "name": "sheriff-dashboard-web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "/Users/liu/Workspace/My/Extensions/sheriff-says/dashboard/web"
+      ],
+      "port": 5173,
+      "autoPort": true
+    }
+  ]
+}

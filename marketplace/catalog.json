@@ -1,0 +1,36 @@
+[
+  {
+    "id": "open-site",
+    "name": "Open Site (demo)",
+    "description": "Example: row button that opens the app's local dev server in the browser",
+    "manifestUrl": "marketplace/open-site",
+    "example": true
+  },
+  {
+    "id": "restart-btn",
+    "name": "Restart Button (demo)",
+    "description": "Example: row button that restarts a running app (with confirm)",
+    "manifestUrl": "marketplace/restart-btn",
+    "example": true
+  },
+  {
+    "id": "git-log",
+    "name": "Git Log (demo)",
+    "description": "Example: context-menu item that runs a shell command (git log) in a tmux window",
+    "manifestUrl": "marketplace/git-log",
+    "example": true
+  },
+  {
+    "id": "git-actions",
+    "name": "Git Actions",
+    "description": "Fetch, pull, push and stash for the app's repo \u2014 as a button group, a popup, or right-click menu items",
+    "manifestUrl": "marketplace/git-actions"
+  },
+  {
+    "id": "proxy-toggle",
+    "name": "Custom Toggle (demo)",
+    "description": "Example: independent toggle with its own per-app state that runs a command on change \u2014 NOT tied to app flags",
+    "manifestUrl": "marketplace/proxy-toggle",
+    "example": true
+  }
+]

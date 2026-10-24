@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Loki demo-frontend</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 560px; margin: 4rem auto; padding: 0 1rem; }
+    #status { padding: 0.75rem 1rem; border-radius: 8px; background: #f2f2f2; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>demo-frontend</h1>
+  <p>Static page served by a zero-dependency Node server. Pings <code>demo-backend</code> on load.</p>
+  <div id="status">calling demo-backend...</div>
+  <script>
+    fetch('http://localhost:4001')
+      .then((r) => r.json())
+      .then((data) => {
+        document.getElementById('status').textContent = JSON.stringify(data, null, 2);
+      })
+      .catch((err) => {
+        document.getElementById('status').textContent = 'demo-backend not reachable: ' + err.message;
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 176" width="176" height="176">
+  <!-- macOS menu bar template icon: black glyph on transparent, the system tints it. -->
+  <g fill="none" stroke="#000" stroke-width="14" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M22 38H154L88 148Z"/>
+    <path d="M59 38L88 89L117 38"/>
+  </g>
+</svg>

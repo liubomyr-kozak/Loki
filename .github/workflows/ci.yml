@@ -1,0 +1,109 @@
+name: CI
+
+# Every cross-OS fix in this repo was written against API contracts, not
+# against a running Windows or Linux box. This workflow is what turns those
+# into facts. It deliberately does NOT sign or notarize anything — that is a
+# release concern with its own secrets, and mixing it in would make the
+# cheap per-push signal expensive and flaky.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Node-only lane: fast, needs no Rust toolchain, and covers the surfaces that
+  # actually broke per-OS — .bin shims, filesystem-root cwd, config locations.
+  check:
+    name: check (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-24.04, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # The repo pins yarn 4 via packageManager and does not vendor the
+      # binary, so Corepack is a real prerequisite, not a convenience.
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install
+        run: yarn install --immutable
+
+      - name: Build backend (tsc)
+        run: yarn server:build
+
+      - name: Build frontend (vite)
+        run: yarn ui:build
+
+      - name: Unit tests
+        run: yarn vitest run
+
+      # dev + packaged stages. The `app` stage is intentionally excluded here:
+      # it needs a full Tauri build, and it hardcodes port 9999.
+      - name: Smoke (dev + packaged)
+        run: node scripts/smoke-test.js
+
+  # Bundle lane: proves the desktop app actually assembles on each OS.
+  desktop:
+    name: desktop build (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-24.04, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: app/src-tauri -> target
+
+      # Tauri's Linux backend is WebKitGTK; without these the build fails at
+      # link time with missing pkg-config entries rather than anything that
+      # names the real cause.
+      - name: Linux system dependencies
+        if: matrix.os == 'ubuntu-24.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            libappindicator3-dev \
+            librsvg2-dev \
+            patchelf \
+            libxdo-dev
+
+      - name: Install
+        run: yarn install --immutable
+
+      - name: Build desktop bundle
+        run: yarn build
+
+      - name: Upload bundles
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle-${{ matrix.os }}
+          path: app/src-tauri/target/release/bundle/
+          if-no-files-found: warn
+          retention-days: 7

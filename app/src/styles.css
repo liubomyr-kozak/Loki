@@ -1,0 +1,4461 @@
+/*
+ * HARD RULE - DO NOT USE BOX-SHADOW ANYWHERE IN THIS FILE
+ * ============================================================
+ * THIS IS AN ABSOLUTE PROHIBITION ON BOX-SHADOW
+ * DO NOT ADD IT BACK NO MATTER WHAT
+ * IF YOU FEEL LIKE ADDING BOX-SHADOW, DELETE THIS FILE INSTEAD
+ * BOXSHADOW_IS_FORBIDDEN_PERMANENTLY_AND_COMPLETELY
+ * ============================================================
+ */
+
+button:focus,
+button:focus-visible {
+    outline: none;
+}
+
+:root {
+    --bg-primary: #143026;
+    --bg-secondary: #1a3a2d;
+    --bg-tertiary: #204534;
+    --tooltip-bg: #263a30;
+    --tooltip-fg: #f0f0f0;
+    --tooltip-border: #3a5243;
+    --bg-settings-card: #1a3d2e;
+    --border-primary: #30513f;
+    --border-secondary: #2a4534;
+    --border-settings: #2f5240;
+    --border-settings-item: #28483a;
+    --text-primary: #e6e6e6;
+    --text-secondary: #b3bfb9;
+    --text-muted: #a5b0aa;
+    --text-label: #bbb;
+    --text-settings-group: #97ada3;
+    --text-group-header: #97ada3;
+    --dot-inactive: #666;
+    --dot-running: #3ecf6b;
+    --dot-warning: #e6b800;
+    --dot-error: #e65555;
+    --star-inactive: #555;
+    --star-active: #f5c518;
+    --toggle-off: #2f7d3a;
+    --toggle-on: #b13a3a;
+    --toggle-text: #fff;
+    --error-text: #ff8a8a;
+    --force-btn-bg: #5a3a1a;
+    --force-btn-text: #ffd28a;
+    --force-btn-border: #7a531f;
+    --group-btn-inactive: #8fa199;
+    --group-btn-hover: #7a9a8e;
+    --group-btn-active: #3ecf6b;
+    --group-btn-active-bg: rgba(62, 207, 107, 0.12);
+    --settings-item-hover: #1f4433;
+    --settings-chevron: #4f6359;
+    --cfg-status: #7fae8d;
+    --quit-btn-text: #e68f8f;
+    --quit-btn-border: #4a2727;
+    --quit-btn-hover: #2a1818;
+    --quit-btn-hover-border: #5a2f2f;
+    --switch-slider-off: #3a3a42;
+    --switch-slider-on: #2f7d3a;
+    --switch-dot: #ddd;
+    --bg-list: #1e3b2e;
+    --chip-version-text: #7eb8d4;
+    --chip-version-label: #4a7d99;
+    --chip-version-hover-bg: rgba(126, 184, 212, 0.07);
+    --chip-version-v2-text: #a78bfa;
+    --chip-env-text: #8ecf8e;
+    --chip-env-label: #4a8a4a;
+    --chip-env-hover-bg: rgba(142, 207, 142, 0.07);
+    --popover-bg: #17352a;
+    --popover-border: #30513f;
+    --popover-border-top: #3a5547;
+    --popover-ring: #0a1410;
+    --popover-item-hover: #214635;
+    --accent: #3ecf6b;
+    --accent-bg: rgba(62, 207, 107, 0.12);
+    --accent-execution: #3ecf6b;
+    --accent-execution-bg: rgba(62, 207, 107, 0.12);
+    --accent-environment: #7eb8d4;
+    --accent-environment-bg: rgba(126, 184, 212, 0.12);
+    --accent-storage: #4dd0c4;
+    --accent-storage-bg: rgba(77, 208, 196, 0.12);
+    --toggle-track-on: #3ecf6b;
+    --toggle-track-off: #3a3a42;
+    --toggle-thumb: #ddd;
+    --env-cmd-text: #a5b0aa;
+    --row-hover: rgba(255, 255, 255, 0.06);
+    --icon-btn-hover: rgba(255, 255, 255, 0.08);
+    --dashboard-shell: linear-gradient(160deg, #1c4a37, #0f2e22);
+    --dashboard-card-bg: #12291f;
+    --dashboard-tab-track: rgba(255, 255, 255, 0.06);
+    --dashboard-tab-active-bg: rgba(255, 255, 255, 0.10);
+    --dashboard-close-hover: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-tertiary: #eeeeee;
+    --tooltip-bg: #1f2430;
+    --tooltip-fg: #ffffff;
+    --tooltip-border: #1f2430;
+    --bg-settings-card: #f0f5f3;
+    --border-primary: #e0e0e0;
+    --border-secondary: #d5d5d5;
+    --border-settings: #d9e8e3;
+    --border-settings-item: #e5ebe8;
+    --text-primary: #1a1a1a;
+    --text-secondary: #595959;
+    --text-muted: #666b68;
+    --text-label: #555;
+    --text-settings-group: #46695a;
+    --text-group-header: #46695a;
+    --dot-inactive: #999;
+    --dot-running: #2fa650;
+    --dot-warning: #d4a600;
+    --dot-error: #d93a3a;
+    --star-inactive: #bbb;
+    --star-active: #f5c518;
+    --toggle-off: #2f7d3a;
+    --toggle-on: #d93a3a;
+    --toggle-text: #fff;
+    --error-text: #c03a3a;
+    --force-btn-bg: #f0e0cc;
+    --force-btn-text: #8b5a00;
+    --force-btn-border: #d4a600;
+    --group-btn-inactive: #56706a;
+    --group-btn-hover: #5a7d6e;
+    --group-btn-active: #2fa650;
+    --group-btn-active-bg: rgba(47, 166, 80, 0.12);
+    --settings-item-hover: #e8efe9;
+    --settings-chevron: #8a9a8e;
+    --cfg-status: #4a7d6e;
+    --quit-btn-text: #b82a2a;
+    --quit-btn-border: #e0b0b0;
+    --quit-btn-hover: #fce8e8;
+    --quit-btn-hover-border: #e08888;
+    --switch-slider-off: #e0e0e0;
+    --switch-slider-on: #4a9d56;
+    --switch-dot: #fff;
+    --chip-version-text: #2a7aaa;
+    --chip-version-label: #6aaace;
+    --chip-version-hover-bg: rgba(42, 122, 170, 0.07);
+    --chip-version-v2-text: #7c3aed;
+    --chip-env-text: #2a8a2a;
+    --chip-env-label: #5aaa5a;
+    --chip-env-hover-bg: rgba(42, 138, 42, 0.07);
+    --popover-bg: #ffffff;
+    --popover-border: #d4dcd8;
+    /* was #ffffff — an invisible white top edge on a white popover made the
+       menu look clipped at the top in light theme */
+    --popover-border-top: #d4dcd8;
+    --popover-ring: #eef2f0;
+    --popover-item-hover: #f0f5f3;
+    --accent: #2fa650;
+    --accent-bg: rgba(47, 166, 80, 0.1);
+    --accent-execution: #2fa650;
+    --accent-execution-bg: rgba(47, 166, 80, 0.1);
+    --accent-environment: #2b7fd1;
+    --accent-environment-bg: rgba(43, 127, 209, 0.08);
+    --accent-storage: #0f9b8e;
+    --accent-storage-bg: rgba(15, 155, 142, 0.08);
+    --toggle-track-on: #2fa650;
+    --toggle-track-off: #e0e0e0;
+    --toggle-thumb: #fff;
+    --bg-list: #f3f7f3;
+    --env-cmd-text: #6f6f6f;
+    --row-hover: rgba(0, 0, 0, 0.04);
+    --icon-btn-hover: rgba(0, 0, 0, 0.06);
+    --dashboard-shell: linear-gradient(45deg, #f3f7f3, #dcebe1);
+    --dashboard-card-bg: #ffffff;
+    --dashboard-tab-track: rgba(0, 0, 0, 0.06);
+    --dashboard-tab-active-bg: #ffffff;
+    --dashboard-close-hover: rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px;
+    color: var(--text-primary);
+    background: transparent;
+    overflow: hidden;
+}
+
+/* Column layout so `.dockBar` sits as a pinned footer: `.list` takes the leftover
+   height and scrolls, the dock keeps its own. Without the fixed height the stack
+   (header + list + dock) exceeds the 520px window and `overflow: hidden` clips the
+   dock away. */
+.app {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-list);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.loading {
+    width: 360px;
+    padding: 24px;
+    text-align: center;
+    color: var(--text-muted);
+    background: var(--bg-primary);
+    border-radius: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 4px 0;
+    padding: 10px 14px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    /* sit above .list so scrolled rows tuck under the header instead of hard-clipping */
+    position: relative;
+    z-index: 2;
+}
+
+.ws {
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.summary {
+    color: var(--text-secondary);
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+
+.summary:hover {
+    background: var(--group-btn-active-bg);
+}
+
+/* min-height: 0 is load-bearing — a flex child defaults to an automatic minimum size
+   of its content, which would push the dock out of the window instead of scrolling. */
+.list {
+    flex: 1;
+    min-height: 0;
+    /* negative top/bottom pull the scroll area up under the header and down under the
+       dock; matching padding keeps the first/last row clear at rest. Rows slide under
+       both bars as they scroll. */
+    margin-top: -10px;
+    margin-bottom: -10px;
+    padding: 16px 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    background: var(--bg-list);
+    /* soft fade so rows dissolve toward each bar's middle instead of a hard cut */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
+}
+
+.list::-webkit-scrollbar {
+    display: none;
+}
+
+.empty {
+    padding: 20px 14px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.emptyRetry {
+    margin-top: 10px;
+}
+
+.emptyState {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 36px 20px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.emptyStateIcon {
+    opacity: 0.55;
+}
+
+.emptyStateTitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.emptyStateHint {
+    font-size: 12px;
+    max-width: 280px;
+    line-height: 1.5;
+}
+
+.emptyState .scanConfirmBtn {
+    align-self: center;
+    margin-top: 6px;
+}
+
+.row {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border-secondary);
+    -webkit-user-select: none;
+    user-select: none;
+    min-height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rowMain {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 28px;
+}
+
+.label {
+    margin-right: auto;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Flex child min-width defaults to auto (= content size), which blocks
+       shrinking below the label's own text width and defeats the
+       nowrap/overflow/ellipsis above. min-width:0 lets it actually shrink. */
+    min-width: 0;
+}
+
+/* Configured app icon takes over the leftmost slot (see .dot below), replacing the
+   status dot rather than living inside .label. It keeps the same drag-start affordance
+   the dot had (grab/grabbing cursor), so reordering still works from this spot. */
+.rowIconHandle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    flex-shrink: 0;
+    cursor: grab;
+    touch-action: none;
+}
+
+.rowIconHandle.dragging {
+    cursor: grabbing;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    margin: 0 2.5px;
+    border-radius: 50%;
+    border: 0.75px solid var(--dot-inactive);
+    background: none;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.dot.running {
+    border-color: var(--dot-running);
+}
+
+.dot.stopped {
+    border-color: var(--dot-inactive);
+}
+
+.dot.port-conflict {
+    border-color: var(--dot-warning);
+}
+
+.dot.unhealthy {
+    border-color: var(--dot-error);
+}
+
+.switch.unmanaged .switchLabel {
+    color: var(--dot-warning);
+    font-style: italic;
+}
+
+.dot.draggable {
+    cursor: grab;
+    touch-action: none;
+}
+
+.dot.draggable.dragging {
+    cursor: grabbing;
+}
+
+/* Static favorite badge — not a button: toggling favorites now lives in the
+   row's context menu only (an inline star button used to overlap the
+   context menu's rounded top corner). Shown only when the row is a
+   favorite; never rendered otherwise, so there's nothing to hover/click. */
+.starIndicator {
+    flex-shrink: 0;
+    color: var(--star-active);
+    margin-left: 2px;
+}
+
+/* Marks a clone row (rowId !== appName) — same small-pill visual language as
+   .organizeBadge/.pluginLabelBadge. */
+.cloneBadge {
+    flex-shrink: 0;
+    margin-left: 6px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: var(--accent-execution-bg);
+    color: var(--accent-execution);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.termBtn, .branchBtn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0 2px;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    transition: color 0.15s;
+}
+
+.termBtn:hover, .branchBtn:hover {
+    color: var(--dot-running);
+}
+
+/* meta row (line 2): fields flow inline; an absent picker (env, branch, drift)
+   takes no space at all. Cross-row column alignment was deliberately dropped
+   in favor of a fixed-cost, no-empty-space layout. */
+.rowControls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+    padding-left: 17px;
+}
+
+.rowMetaCell {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.rowMetaDrift {
+    justify-content: flex-start;
+}
+
+/* Icon-only drift indicator: a long inline "live: <branch> · <env>" chip used
+   to render here and overlap the flag/site/restart buttons in .rowControls
+   once a branch name got long enough. A small warning icon can't overflow;
+   the full text is shown via .driftTooltip on hover instead of being
+   rendered inline. A native `title` attribute was tried first but WKWebView
+   (Tauri) shows it too slowly/inconsistently to be usable. */
+.driftWarningIcon {
+    flex-shrink: 0;
+    color: var(--dot-warning);
+    cursor: default;
+}
+
+/* Rendered via the Popover portal (document.body, position:fixed, real
+   viewport-space math in AppRowPickers.tsx) instead of position:absolute
+   inside the row — an absolute box near a row's top/bottom edge has no gap
+   to open into and either clips or overlaps the adjacent row. Fixed
+   positioning sidesteps that the same way this app's dropdown Picker menus
+   already do. */
+.driftTooltip {
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background: var(--tooltip-bg);
+    color: var(--tooltip-fg);
+    border: 1px solid var(--tooltip-border);
+    border-radius: 5px;
+    padding: 6px 9px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.3;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Small arrow connecting the tooltip box back to the warning icon — the box
+   right-aligns to the icon but can span far to its left (long branch names),
+   so without this it can read as floating/detached from the icon. */
+.driftTooltip::after {
+    content: '';
+    position: absolute;
+    /* Set per-instance in AppRowPickers.tsx so the arrow stays over the
+       warning icon even though the box itself hugs the viewport's right edge. */
+    right: var(--drift-arrow-right, 5px);
+    border: 5px solid transparent;
+}
+
+.driftTooltip-below::after {
+    bottom: 100%;
+    border-bottom-color: var(--tooltip-bg);
+}
+
+.driftTooltip-above::after {
+    top: 100%;
+    border-top-color: var(--tooltip-bg);
+}
+
+.driftTooltipHeader {
+    font-size: 10px;
+    font-weight: 600;
+    opacity: 0.65;
+    margin-bottom: 1px;
+}
+
+.driftTooltipRow {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rowMetaEnv {
+    flex-shrink: 0;
+}
+
+.rowMetaBranch {
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+    /* This cell can hold the branch chip AND N plugin-slot buttons (e.g. a
+       flag toggle) at once. In a very crowded row (branch chip + flag toggle
+       + multiple plugin buttons + a drift chip, all fighting for the same
+       .rowControls line) the cell itself can be squeezed to near-zero width
+       by the flex layout, but its plugin-slot children have no shrink/cap of
+       their own — without this, they don't shrink WITH the cell, they just
+       render at full size and paint outward into the next flex item's box
+       (the drift chip), which looked identical to the pickerWrap/driftChip
+       overflow bug this pass fixed. overflow:hidden clips that residual case
+       instead of letting it bleed into a sibling cell's text. */
+    overflow: hidden;
+}
+
+.rowMetaBranch .pickerWrap {
+    /* hug the branch label (sized to content, capped) instead of stretching
+       across the whole 1fr column, so the clickable/hover pill matches the
+       content width.
+       NOTE: this used to be `flex: 0 0 auto` ("no flex-shrink so it can't
+       collapse to the icon"), but that was the actual overflow bug: when
+       .rowControls ran out of room, the parent .rowMetaCell.rowMetaBranch
+       cell would collapse (it has min-width:0 and flex:1) while this child
+       refused to shrink below max-width, so the picker button rendered at
+       full size and painted over the buttons after it in the row. `flex: 0 1
+       auto` lets it shrink below max-width when space is tight, so the
+       already-correct .chipText ellipsis (below) actually gets to engage. */
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 160px;
+}
+
+.rowMetaBranch .pickerTrigger.chip-branch {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.rowMetaBranch .pickerTrigger.chip-branch .chipValue {
+    max-width: 100%;
+}
+
+.rowMetaCell .pickerTrigger {
+    justify-content: flex-start;
+}
+
+.rowMetaCell .chipValue {
+    justify-content: flex-start;
+}
+
+.pickerWrap {
+    position: relative;
+    display: inline-flex;
+    min-width: 0;
+}
+
+.pickerTrigger {
+    background: none;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 5px;
+    cursor: pointer;
+    transition: background 0.12s;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+    line-height: 1;
+}
+
+.pickerTrigger:hover:not(:disabled) {
+    background: var(--chip-hover-bg, rgba(255,255,255,0.05));
+}
+
+.pickerTrigger:disabled {
+    opacity: 0.38;
+    cursor: default;
+}
+
+/* version chip */
+.pickerTrigger.chip-version {
+    --chip-hover-bg: var(--chip-version-hover-bg);
+}
+
+.pickerTrigger.chip-version .chipLabel {
+    color: var(--chip-version-label);
+}
+
+.pickerTrigger.chip-version .chipValue {
+    color: var(--chip-version-text);
+}
+
+/* v2 chip — purple accent */
+.pickerTrigger.chip-version-v2 .chipValue {
+    color: var(--chip-version-v2-text);
+}
+
+/* env chip */
+.pickerTrigger.chip-env {
+    --chip-hover-bg: var(--chip-env-hover-bg);
+}
+
+.pickerTrigger.chip-env .chipLabel {
+    color: var(--chip-env-label);
+}
+
+.pickerTrigger.chip-env .chipValue {
+    color: var(--chip-env-text);
+}
+
+/* branch chip */
+.pickerTrigger.chip-branch {
+    --chip-hover-bg: var(--chip-version-hover-bg);
+}
+
+.pickerTrigger.chip-branch .chipLabel {
+    color: var(--chip-version-label);
+}
+
+.pickerTrigger.chip-branch .chipValue {
+    color: var(--chip-version-text);
+    /* cap the branch chip so a long branch name ellipsizes instead of
+       stretching the row; max-width always wins over the width:100%
+       set by .rowMetaBranch .pickerTrigger.chip-branch .chipValue */
+    max-width: 200px;
+}
+
+.filterToggleBtn.active {
+    background: var(--chip-hover-bg, rgba(255,255,255,0.05));
+}
+
+/* Environments header controls (branch picker + Filter) rendered as
+   elevated pill buttons: surface bg + hairline border + soft shadow,
+   hover lifts the shadow slightly. */
+.sectionCardHeaderAction .pickerTrigger {
+    background: var(--popover-bg);
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    padding: 5px 11px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    transition: background 0.12s, box-shadow 0.12s;
+}
+
+.sectionCardHeaderAction .pickerTrigger:hover:not(:disabled) {
+    background: var(--settings-item-hover);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+}
+
+.sectionCardHeaderAction .pickerTrigger .chipValue {
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Active Filter must be unmistakable: accent ring (box-shadow, never a
+   border — no layout jump) + accent-tinted bg + accent text/icon. */
+.sectionCardHeaderAction .filterToggleBtn.active {
+    background: var(--accent-execution-bg);
+    box-shadow: 0 0 0 1px var(--accent-execution), 0 0 0 4px var(--accent-execution-bg);
+}
+
+.sectionCardHeaderAction .filterToggleBtn.active .chipValue {
+    color: var(--accent-execution);
+}
+
+/* A filter (temporary or saved regex) is dimming scripts: tint the closed
+   button too and add a green dot, so it's visible without opening it. */
+.sectionCardHeaderAction .filterToggleBtn.applied {
+    box-shadow: 0 0 0 1px var(--accent-execution);
+}
+
+.sectionCardHeaderAction .filterToggleBtn.applied .chipValue {
+    color: var(--accent-execution);
+}
+
+.filterAppliedDot {
+    flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-execution);
+    box-shadow: 0 0 0 2px var(--accent-execution-bg);
+}
+
+/* dropdown caret on the branch pill */
+.chipCaretIcon {
+    flex-shrink: 0;
+    opacity: 0.55;
+    color: var(--text-secondary);
+}
+
+.pickerBadge {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-left: 4px;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.pickerBadge.dirty {
+    background: var(--dot-warning);
+}
+
+.pickerBadge.stash {
+    background: var(--accent-environment);
+}
+
+.pickerBadge.conflict {
+    background: var(--dot-error);
+}
+
+.chipLabel {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.chipValue {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* the value text itself, split out from .chipValue so a long branch name
+   ellipsizes on its own line while the dirty/stash/conflict badges beside it
+   stay fixed-width and never get squeezed or pushed to a wrapped line. */
+.chipText {
+    flex: 0 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+/* trigger-chip icon (GitBranch / Server) placed left of .chipText; inherits
+   the chip's color (env green / branch blue) via currentColor, never shrinks
+   so long branch text ellipsizes instead of squeezing the icon. */
+.chipIcon {
+    flex-shrink: 0;
+}
+
+.chipCaret {
+    font-size: 8px;
+    opacity: 0.55;
+    line-height: 1;
+    margin-top: 1px;
+}
+
+/* keep the sigil class defined so old references don't break, just hide it */
+.pickerSigil {
+    display: none;
+}
+
+/* Portaled floating menu (Popover.tsx renders this as the top-level portal
+   div — position/left/top/max-height/z-index come from Picker's inline
+   style per useAnchoredPosition, this class only supplies chrome). It is
+   also the element carrying the inline max-height, so it is the scroll
+   container — search input and listbox both live inside it. */
+.pickerMenuPortal {
+    background: var(--popover-bg);
+    border: 1px solid var(--popover-border);
+    border-top: 1px solid var(--popover-border-top);
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 180px;
+    max-width: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* floating menu elevation — without it the popover visually merged
+       with the card below and read as a clipped block */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.pickerMenu {
+    display: flex;
+    flex-direction: column;
+    outline: none;
+}
+
+.pickerItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 30px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--text-label);
+    white-space: nowrap;
+    overflow: hidden;
+    transition: background 0.1s;
+}
+
+.pickerItem:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.pickerItem.cursor {
+    background: var(--popover-item-hover);
+}
+
+.pickerItem.active {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.pickerItem svg {
+    flex-shrink: 0;
+}
+
+.pickerItemLabel {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pickerItemCheck {
+    flex-shrink: 0;
+}
+
+.pickerItemDropStash {
+    color: var(--text-muted);
+}
+
+.pickerSeparator {
+    height: 1px;
+    background: var(--popover-border);
+    margin: 4px 6px;
+}
+
+.iconPickerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--popover-border);
+    margin-bottom: 4px;
+}
+
+.iconPickerHeaderSelected {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+.iconPickerHeaderPreview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    border: 1px solid var(--popover-border);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    flex-shrink: 0;
+}
+
+.iconPickerHeaderName {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.iconPickerHeaderNameMuted {
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+.iconPickerHeaderClear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.12s, color 0.12s;
+}
+
+.iconPickerHeaderClear:hover {
+    background: var(--icon-btn-hover);
+    color: var(--dot-error);
+}
+
+.iconPickerHeaderProvider {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.iconPickerGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    padding: 2px 4px 4px;
+}
+
+.iconPickerGridItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-width: 0;
+    height: 62px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-label);
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.iconPickerGridItem:hover {
+    background: var(--popover-item-hover);
+    color: var(--text-primary);
+}
+
+.iconPickerGridItem.selected {
+    box-shadow: inset 0 0 0 1.5px var(--dot-running);
+    color: var(--dot-running);
+}
+
+.iconPickerGridItemLabel {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.68rem;
+    line-height: 1;
+}
+
+.pickerMenuEmpty {
+    color: var(--text-muted);
+    padding: 7px 13px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.pickerSearchInput {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    margin-bottom: 4px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--popover-border);
+    border-radius: 4px;
+    color: var(--text-muted);
+}
+
+.pickerSearchInput input {
+    flex: 1 1 auto;
+    min-width: 0;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-size: 0.82rem;
+    padding: 0;
+}
+
+/* toggle switch for flag */
+.switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    color: var(--text-label);
+    font-size: 12px;
+}
+
+.switch input {
+    display: none;
+}
+
+.switch .slider {
+    position: relative;
+    width: 30px;
+    height: 17px;
+    background: var(--switch-slider-off);
+    border-radius: 9px;
+    transition: background 0.15s;
+    flex-shrink: 0;
+}
+
+.switch .slider::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 13px;
+    height: 13px;
+    background: var(--switch-dot);
+    border-radius: 50%;
+    transition: transform 0.15s;
+}
+
+.switch input:checked + .slider {
+    background: var(--switch-slider-on);
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(13px);
+}
+
+.switch input:disabled + .slider {
+    opacity: 0.5;
+}
+
+.switchLabel {
+    user-select: none;
+}
+
+.toggle {
+    margin-left: auto;
+    background: var(--toggle-on);
+    color: var(--toggle-text);
+    border: none;
+    border-radius: 4px;
+    padding: 2px 9px;
+    cursor: pointer;
+    font-size: 11px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.toggle:not(.on) {
+    background: var(--toggle-off);
+}
+
+.toggle:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.togglePort {
+    opacity: 0.65;
+    font-size: 10px;
+    margin-left: 4px;
+    letter-spacing: 0;
+}
+
+.pluginBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--bg-tertiary);
+    color: var(--text-label);
+    border: 1px solid var(--border-primary);
+    border-radius: 5px;
+    padding: 3px 8px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.pluginBtn:hover:not(:disabled) {
+    background: var(--settings-item-hover);
+    color: var(--text-primary);
+}
+
+.pluginBtn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.pluginBtn.confirming {
+    background: var(--toggle-on);
+    color: var(--toggle-text);
+    border-color: var(--toggle-on);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spin {
+    animation: spin 0.8s linear infinite;
+    display: block;
+}
+
+.error {
+    margin-top: 6px;
+    padding-left: 17px;
+    color: var(--error-text);
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.errText {
+    word-break: break-word;
+}
+
+.forceBtns {
+    display: flex;
+    gap: 6px;
+}
+
+.forceBtns button {
+    background: var(--force-btn-bg);
+    color: var(--force-btn-text);
+    border: 1px solid var(--force-btn-border);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.groupBtn {
+    background: none;
+    border: none;
+    color: var(--group-btn-inactive);
+    cursor: pointer;
+    padding: 2px;
+    line-height: 1;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+    min-width: 20px;
+    min-height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.groupBtn:hover {
+    color: var(--group-btn-hover);
+    background: var(--group-btn-active-bg);
+}
+
+.groupBtn.active {
+    color: var(--group-btn-active);
+    background: none;
+}
+
+.settingsBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--group-btn-inactive);
+    cursor: pointer;
+    font-size: 16px;
+    width: 26px;
+    height: 26px;
+    padding: 4px;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+}
+
+.settingsBtn:hover {
+    color: var(--group-btn-hover);
+    background: var(--group-btn-active-bg);
+}
+
+.groupActionPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 9px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    line-height: 1.4;
+    transition: filter 0.12s;
+}
+
+.groupActionPill svg {
+    flex-shrink: 0;
+}
+
+.groupActionPill.start {
+    background: var(--toggle-off);
+}
+
+.groupActionPill.stop {
+    background: var(--toggle-on);
+}
+
+.groupActionPill:hover {
+    filter: brightness(1.12);
+}
+
+.groupHeader {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 38px;
+    margin: 0 4px 4px;
+    padding: 7px 6px 7px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--text-group-header);
+    cursor: pointer;
+    user-select: none;
+    touch-action: none;
+    background: transparent;
+    border-radius: 10px;
+}
+
+/* dnd-kit's sortable attributes put tabIndex=0 on the header, so a plain
+   click leaves it focused — suppress the WebKit default blue focus ring
+   (no focus rings on plain non-input surfaces). */
+.groupHeader:focus,
+.groupHeader:focus-visible {
+    outline: none;
+}
+
+.groupHeader:hover {
+    color: var(--group-btn-hover);
+    background: var(--settings-item-hover);
+}
+
+.groupHeader:active {
+    cursor: grabbing;
+}
+
+.groupCountPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 1px 8px;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.5;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.groupCountPill.running {
+    background: rgba(62, 207, 107, 0.14);
+    color: var(--dot-running);
+}
+
+/* group card — the header (.groupHeader) sits outside this, the group's rows sit
+   inside it as one rounded, bordered block with hairline dividers between rows
+   (each .row already carries its own border-bottom). overflow: hidden clips the
+   first/last row's corners to the card's border-radius. */
+.groupCard {
+    margin: 0 4px 16px;
+    border: 1px solid var(--border-primary);
+    border-radius: 10px;
+    background: var(--bg-primary);
+    overflow: hidden;
+}
+
+.groupCard .row:last-child {
+    border-bottom: none;
+}
+
+/* settings view */
+.settings {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.settingsHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.settingsHeaderTitle {
+    margin: 0;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+}
+
+.settingsHeaderSubtitle {
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--text-settings-group);
+}
+
+.settingsHeader .settingsResetBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex: 0 0 auto;
+    padding: 7px 12px;
+    border: 1px solid var(--border-settings);
+    border-radius: 7px;
+    background: var(--bg-settings-card);
+    color: var(--accent-execution);
+}
+
+.settingsHeader .settingsResetBtn:hover {
+    border-color: var(--accent-execution);
+    color: var(--accent-execution);
+}
+
+/* section cards — stacked layout: header row (icon/title/desc) on top,
+   full-width content body below. */
+.sectionCard {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* No horizontal padding: section content (header icon + cards) must
+       left-align with the page title, not sit indented 16px to its right. */
+    padding: 16px 0;
+    border-radius: 8px;
+}
+
+.sectionCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-settings-item);
+}
+
+.sectionCardHeaderText {
+    flex: 1;
+    min-width: 0;
+}
+
+.sectionCardHeaderAction {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sectionCardIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+}
+
+.sectionCard--execution .sectionCardIcon {
+    color: var(--accent-execution);
+    background: var(--accent-execution-bg);
+}
+
+.sectionCard--environment .sectionCardIcon {
+    color: var(--accent-environment);
+    background: var(--accent-environment-bg);
+}
+
+.sectionCard--storage .sectionCardIcon {
+    color: var(--accent-storage);
+    background: var(--accent-storage-bg);
+}
+
+.sectionCardTitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.sectionCardDesc {
+    font-size: 11px;
+    color: var(--text-settings-group);
+    margin-top: 2px;
+}
+
+.sectionCardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.settingsGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.settingsGroupTitle {
+    color: var(--text-settings-group);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.settingsCard {
+    background: var(--bg-settings-card);
+    border: 1px solid var(--border-settings);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.settingsItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 13px;
+    background: var(--bg-primary);
+}
+
+.settingsItem + .settingsItem {
+    border-top: 1px solid var(--border-settings-item);
+}
+
+.settingsItem .meta {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Environment settings page (SectionCard content + the advanced-settings
+   panel nested inside it): rows get a real 2-column grid instead of the
+   old fixed inline width:220/180px on the control wrapper, so long paths
+   (up to 320px) don't clip. Scoped to .sectionCard so the unrelated
+   General/Appearance .settingsItem rows in SettingsView.tsx (chevron,
+   switch, segmented control) keep their auto-width flex layout. */
+.sectionCard .settingsItem {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(200px, 440px);
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sectionCard .settingsItem .meta {
+    flex: initial;
+}
+
+/* status-only row (e.g. "Unavailable: ..."), no control column — let the
+   label take the full row instead of reserving space for a control. */
+.sectionCard .settingsItem--status {
+    display: block;
+}
+
+/* shared right-hand control column (select/input + redetect/copy/status
+   buttons) — replaces the old fixed inline width:220/180px so long paths
+   get up to 320px instead of clipping at 220px. */
+.settingsItemControl {
+    min-width: 0;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.settingsItemControl > select,
+.settingsItemControl > input,
+.settingsItemControl .inlineEditText,
+.settingsItemControl .inlineEditInput {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+/* Fallback box metrics for any plain native <select>/<input> in this
+   column that isn't already covered by .selectorRowSelect/.inlineEdit*
+   (e.g. AppConfigDetail's surface picker) so all controls share the same
+   modern height/radius/border. */
+.settingsItemControl > select,
+.settingsItemControl > input {
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid var(--border-primary);
+    border-radius: 7px;
+    box-sizing: border-box;
+    font-size: 13px;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+}
+
+.settingsItemControl > select:focus,
+.settingsItemControl > input:focus {
+    outline: none;
+    border-color: var(--accent-execution);
+}
+
+.settingsItemControl > input::placeholder {
+    color: var(--text-muted);
+}
+
+/* SettingField's "choose folder" icon button: overrides the padding that
+   .settingsItemControl .segBtn otherwise fixes at 0 for the 36x36 square
+   buttons, so it needs to match/exceed that selector's specificity. */
+.settingsItemControl .segBtn.settingsFieldFolderBtn {
+    flex-shrink: 0;
+    padding: 4px 8px;
+}
+
+.settingsItem .meta .name {
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.settingsItem .meta .desc {
+    color: var(--text-settings-group);
+    font-size: 11px;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.settingsItem.clickable {
+    cursor: pointer;
+}
+
+.settingsItem.clickable:hover {
+    background: var(--settings-item-hover);
+}
+
+.settingsItem .chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    color: var(--settings-chevron);
+    font-size: 18px;
+    transition: color 0.15s;
+}
+
+.settingsItem .chevron svg {
+    width: 14px;
+    height: 14px;
+}
+
+.settingsItem.clickable:hover .chevron {
+    color: var(--text-primary);
+}
+
+.cfgStatus {
+    color: var(--cfg-status);
+    font-size: 11px;
+    padding: 0 2px;
+    min-height: 14px;
+}
+
+.cfgStatus--error {
+    color: var(--error-text);
+}
+
+/* provider radio-cards (session backend picker) */
+.providerCards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.providerCard {
+    flex: 1 1 260px;
+    min-width: 220px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-align: left;
+    background: var(--bg-settings-card);
+    border: 1px solid var(--border-settings);
+    border-radius: 8px;
+    padding: 11px 13px;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+    transition: border-color 0.12s, background 0.12s;
+}
+
+.providerCard:hover {
+    border-color: var(--border-primary);
+}
+
+.providerCard.selected {
+    border-color: var(--accent-execution);
+    background: var(--accent-execution-bg);
+}
+
+.providerCard.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.providerCard.disabled:hover {
+    border-color: var(--border-settings);
+}
+
+.providerCardIcon {
+    flex-shrink: 0;
+    color: var(--text-settings-group);
+    margin-top: 1px;
+}
+
+.providerCard.selected .providerCardIcon {
+    color: var(--accent-execution);
+}
+
+.providerCardBody {
+    flex: 1;
+    min-width: 0;
+}
+
+.providerCardTitle {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.providerCardDesc {
+    color: var(--text-settings-group);
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.providerCardReason {
+    color: var(--dot-error);
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.providerBadge {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--toggle-text);
+    background: var(--accent-execution);
+    border-radius: 4px;
+    padding: 2px 6px;
+    flex-shrink: 0;
+}
+
+.providerCardBenefits {
+    list-style: none;
+    margin: 6px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.providerCardBenefits li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-settings-group);
+}
+
+.providerCardBenefits svg {
+    flex-shrink: 0;
+    color: var(--accent-execution);
+}
+
+.providerCardBenefitDot {
+    flex-shrink: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+/* collapsible advanced-settings panel */
+.providerConfigPanel {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.providerConfigPanelHeader {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+}
+
+.providerConfigPanelHeaderText {
+    flex: 1;
+    min-width: 0;
+}
+
+.providerConfigPanelTitle {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.providerConfigPanelDesc {
+    font-size: 11px;
+    color: var(--text-settings-group);
+    margin-top: 2px;
+}
+
+.providerConfigPanelIcon {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: var(--accent-execution);
+}
+
+.providerConfigPanelBody,
+.settingsCardGroup {
+    border: 1px solid var(--border-settings);
+    border-radius: 10px;
+    background: var(--bg-primary);
+    /* NOT overflow:hidden — field `?` tooltips pop above the first row and
+       must escape the card instead of being clipped. Rows are transparent
+       (dividers are border-top only), so rounded corners need no clip. */
+}
+
+.providerConfigPanelBody > .settingsItem,
+.settingsCardGroup > .settingsItem {
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+.providerConfigPanelBody > .settingsItem + .settingsItem,
+.settingsCardGroup > .settingsItem + .settingsItem {
+    border-top: 1px solid var(--border-settings-item);
+}
+
+.settingsItemIcon {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    color: var(--accent-execution);
+}
+
+.providerConfigPanelBody .settingsItem .meta,
+.settingsCardGroup .settingsItem .meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.providerConfigPanelBody .inlineEditText,
+.settingsCardGroup .inlineEditText {
+    border-color: var(--border-primary);
+    background: var(--bg-primary);
+}
+
+/* Field reads as a real input at rest — kill the link-style hover (dotted
+   underline + secondary bg) so rest/edit states look identical. */
+.providerConfigPanelBody .inlineEditText:hover,
+.settingsCardGroup .inlineEditText:hover {
+    border-color: var(--border-primary);
+    background: var(--bg-primary);
+    text-decoration: none;
+}
+
+/* native checkbox rendered as a track/thumb toggle switch */
+.booleanFieldLabel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.booleanFieldLabel input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    width: 30px;
+    height: 17px;
+    margin: 0;
+    border-radius: 9px;
+    background: var(--toggle-track-off);
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.booleanFieldLabel input[type="checkbox"]::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--toggle-thumb);
+    transition: transform 0.15s;
+}
+
+.booleanFieldLabel input[type="checkbox"]:checked {
+    background: var(--toggle-track-on);
+}
+
+.booleanFieldLabel input[type="checkbox"]:checked::before {
+    transform: translateX(13px);
+}
+
+.booleanFieldLabel input[type="checkbox"]:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+/* wraps a BooleanField's switch + FieldStatusIndicator so they sit inline
+   and never get squeezed by the row's flex layout */
+.booleanFieldControls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* per-row save-status indicator (check/x/spinner) */
+.fieldStatusIcon {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.fieldStatusIcon--ok {
+    color: var(--dot-running);
+}
+
+.fieldStatusIcon--error {
+    color: var(--dot-error);
+}
+
+.fieldStatusIcon--saving {
+    color: var(--text-settings-group);
+}
+
+/* read-only storage-path row */
+.storageRowInput {
+    flex: 1;
+    min-width: 0;
+    height: 36px;
+    line-height: 34px;
+    padding: 0 12px;
+    border: 1px solid var(--border-primary);
+    border-radius: 7px;
+    box-sizing: border-box;
+    font-size: 13px;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Paths matter at the tail (…/project/state/logs), so clip the
+       START: rtl flips the ellipsis to the left and shows the end. Latin
+       runs keep their order under bidi. */
+    direction: rtl;
+}
+
+/* Settings → Storage import field: the drop zone IS the control — it holds
+   both affordances (drag a folder in, or click Choose). The manual-path row
+   below only renders in the browser build, where no native picker exists. */
+.settingsDropFieldControl {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.settingsDropZone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border: 1px dashed var(--border-primary);
+    border-radius: 7px;
+    color: var(--text-settings-group);
+    font-size: 12px;
+}
+
+.settingsDropZone.active {
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+}
+
+/* Pushes the "or [Choose…]" pair to the trailing edge, so the zone reads as
+   one control with the hint on the left and the action on the right. */
+.settingsDropZoneOr {
+    margin-left: auto;
+    flex: 0 0 auto;
+}
+
+.settingsDropZoneHint {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Overrides the 36x36 icon-button shape .settingsItemControl imposes further
+   down — this one carries a text label, so it sizes to its content. */
+.settingsDropFieldControl .settingsDropZone .segBtn {
+    width: auto;
+    height: 28px;
+    padding: 0 10px;
+}
+
+.settingsDropFieldManualRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Trailing affordance buttons (redetect / copy / open-folder / folder-pick)
+   that sit next to the 36px storage/inline controls — scoped to
+   settingsItemControl so the shared .segBtn/.iconBtn classes elsewhere
+   (dashboard tabs, config-row copy, etc.) keep their own look. In this
+   settings row they're unified into one bordered square icon-button:
+   36x36 (matches input height), 1px border, 7px radius, transparent at
+   rest, subtle hover fill. */
+.settingsItemControl .segBtn,
+.settingsItemControl .iconBtn {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    white-space: nowrap;
+    background: transparent;
+    border: 1px solid var(--border-primary);
+    border-radius: 7px;
+    box-sizing: border-box;
+    font-size: 13px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.settingsItemControl .segBtn:hover:not(:disabled),
+.settingsItemControl .iconBtn:hover:not(:disabled) {
+    background: var(--icon-btn-hover);
+    color: var(--text-primary);
+    border-color: var(--text-muted);
+}
+
+.settingsItemControl .segBtn:focus-visible,
+.settingsItemControl .iconBtn:focus-visible {
+    outline: 2px solid var(--border-primary);
+    outline-offset: 1px;
+}
+
+.settingsItemControl .segBtn:disabled,
+.settingsItemControl .iconBtn:disabled {
+    opacity: 0.5;
+    color: var(--text-muted);
+    cursor: default;
+    background: transparent;
+}
+
+
+/* accessible field-description tooltip (hover + keyboard focus) */
+.fieldTip {
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+/* Field descriptions are long sentences; the shared branchTip bubble is
+   nowrap + centered on the trigger, so on a left-column `?` it overflows the
+   window's left edge and clips. Left-anchor it to the trigger and let it
+   wrap within a fixed width instead. */
+.fieldTip.branchTip .tipBubble {
+    left: 0;
+    transform: none;
+    white-space: normal;
+    width: max-content;
+    max-width: 260px;
+}
+
+.fieldTip.branchTip .tipBubble::after {
+    left: 14px;
+    transform: none;
+}
+
+.fieldTipTrigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    color: var(--text-muted);
+    font-size: 10px;
+    line-height: 1;
+    cursor: help;
+    padding: 0;
+}
+
+.fieldTipTrigger:hover,
+.fieldTipTrigger:focus-visible {
+    color: var(--text-primary);
+    border-color: var(--text-settings-group);
+}
+
+.branchTip:focus-within .tipBubble,
+.branchTip:focus-within .tipBubble::after {
+    opacity: 1;
+}
+
+
+
+.detectedCardStatus {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.detectedCardStatus.found {
+    color: var(--dot-running);
+}
+
+.detectedCardStatus.missing {
+    color: var(--dot-error);
+}
+
+.pluginInstallRow {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+.pluginFolderBtn {
+    flex: 0 0 auto;
+    padding: 6px 8px;
+    color: var(--text-secondary);
+}
+
+.pluginFolderBtn:hover {
+    color: var(--text-primary);
+}
+
+.settingsItemControl.pluginFoldersControl {
+    align-items: flex-start;
+}
+
+/* Multi-line twin of .storageRowInput: same box, one 34px line per folder. */
+.storageRowInput.pluginFoldersInput {
+    height: auto;
+    min-height: 36px;
+    cursor: text;
+}
+
+.pluginFoldersLine {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Editing: plain left-to-right text, so typing and caret behave normally. */
+.storageRowInput.pluginFoldersInput--editing {
+    direction: ltr;
+    white-space: pre;
+    overflow-x: auto;
+    overflow-y: hidden;
+    resize: none;
+    font-family: inherit;
+    text-overflow: clip;
+    outline: none;
+    border-color: var(--accent-execution);
+}
+
+.pluginInstallInput {
+    flex: 1;
+    min-width: 0;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+
+.pluginList {
+    background: var(--bg-settings-card);
+    border: 1px solid var(--border-settings);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.pluginListItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 13px;
+    font-size: 12px;
+}
+
+.pluginListItem + .pluginListItem {
+    border-top: 1px solid var(--border-settings-item);
+}
+
+.pluginListItemMeta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    flex: 1;
+}
+
+.pluginListItemActions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.pluginMetaClickable {
+    cursor: pointer;
+    min-width: 0;
+    flex: 1;
+}
+
+.pluginListItem:hover {
+    background: var(--settings-item-hover);
+}
+
+.pluginName {
+    color: var(--text-primary);
+    font-weight: 500;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pluginVersion {
+    color: var(--text-settings-group);
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+.pluginLabelBadge {
+    color: var(--text-settings-group);
+    font-size: 10px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    flex-shrink: 0;
+    padding: 2px 6px;
+}
+
+.pluginRemoveBtn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.pluginFlash {
+    font-size: 10px;
+    color: var(--text-settings-group);
+    white-space: nowrap;
+}
+
+.pluginRemoveBtn:hover {
+    background: var(--settings-item-hover);
+    color: var(--text-primary);
+}
+
+.btnQuit {
+    width: 100%;
+    background: transparent;
+    color: var(--quit-btn-text);
+    border: 1px solid var(--quit-btn-border);
+    border-radius: 7px;
+    padding: 9px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.btnQuit:hover {
+    background: var(--quit-btn-hover);
+    border-color: var(--quit-btn-hover-border);
+}
+
+/* segmented control for theme */
+.segmented {
+    display: flex;
+    background: var(--bg-tertiary);
+    border-radius: 7px;
+    padding: 2px;
+    gap: 2px;
+}
+
+.segBtn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: background 0.12s, color 0.12s;
+}
+
+.segBtn:hover {
+    color: var(--text-primary);
+}
+
+.segBtn.active {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.iconBtn {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+}
+
+.iconBtn:hover {
+    background: var(--icon-btn-hover);
+    color: var(--text-primary);
+}
+
+.iconBtn--label {
+    width: auto;
+    gap: 5px;
+    padding: 0 9px;
+    font-size: 11px;
+}
+
+.segBtnCheck {
+    margin-left: 6px;
+    opacity: 0.9;
+}
+
+/* site icon — muted ExternalLink hint inside the label */
+.label .siteIcon {
+    color: var(--text-muted);
+    margin-left: 5px;
+    vertical-align: -1px;
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.15s, color 0.15s;
+}
+
+.label[style*="pointer"] {
+    transition: color 0.15s;
+}
+
+.label[style*="pointer"]:hover {
+    color: #2196f3;
+}
+
+.label[style*="pointer"]:hover .siteIcon {
+    opacity: 1;
+    color: #2196f3;
+}
+
+/* branch tooltip — custom tooltip above the GitBranch icon */
+.branchTip {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.branchTip .tipBubble {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--tooltip-bg);
+    color: var(--tooltip-fg);
+    font-size: 11px;
+    line-height: 1.2;
+    padding: 4px 7px;
+    border-radius: 5px;
+    border: 1px solid var(--tooltip-border);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.12s;
+    z-index: 50;
+}
+
+.branchTip .tipBubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: var(--tooltip-bg);
+    opacity: 0;
+    transition: opacity 0.12s;
+}
+
+.branchTip:hover .tipBubble, .branchTip:hover .tipBubble::after {
+    opacity: 1;
+}
+
+/* long-press inline segmented pill — replaces the terminal button in place */
+.longMenu {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    background: var(--dot-running);
+    border-radius: 999px;
+    padding: 2px;
+    line-height: 0;
+    animation: longMenuIn 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes longMenuIn {
+    from { opacity: 0; transform: scale(0.65) translateX(-6px); filter: blur(3px); }
+    to   { opacity: 1; transform: scale(1) translateX(0); filter: blur(0); }
+}
+
+.longMenuBtn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.12s, transform 0.12s;
+    opacity: 1;
+}
+
+.longMenuBtn:hover {
+    background: rgba(255, 255, 255, 0.32);
+    transform: scale(1.08);
+}
+
+/* sessions dropdown */
+.sessionsWrap {
+    position: relative;
+    display: inline-flex;
+}
+
+.sessionsDropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 200;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 200px;
+    max-width: 260px;
+}
+
+.sessionsEmpty {
+    padding: 9px 13px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.sessionsRow {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border-secondary);
+    transition: background 0.1s;
+}
+
+.sessionsRow:last-child {
+    border-bottom: none;
+}
+
+.sessionsRow:hover {
+    background: var(--bg-tertiary);
+}
+
+.sessionDot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--dot-running);
+    flex-shrink: 0;
+}
+
+.sessionDot.dead {
+    background: var(--dot-error);
+    opacity: 0.6;
+}
+
+.sessionLabel {
+    flex: 1;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-label);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+
+.sessionPort {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-left: 3px;
+    font-weight: 400;
+}
+
+.sessionBtn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 2px 3px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 4px;
+    transition: color 0.12s, background 0.12s;
+    flex-shrink: 0;
+}
+
+.sessionBtn:hover:not(:disabled) {
+    color: var(--text-primary);
+    background: var(--bg-primary);
+}
+
+.sessionBtn:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.dashboard {
+    position: fixed;
+    inset: 0;
+    background: var(--dashboard-shell);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.dashboardHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: transparent;
+}
+
+.dashboardHead .ws {
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--text-primary);
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.dashboardTabs {
+    max-width: 300px;
+    width: 100%;
+    margin: 0 14px;
+    background: var(--dashboard-tab-track);
+}
+
+.dashboardTabs .segBtn {
+    color: var(--text-secondary);
+}
+
+.dashboardTabs .segBtn:hover {
+    color: var(--text-primary);
+}
+
+.dashboardTabs .segBtn.active {
+    background: var(--dashboard-tab-active-bg);
+    color: var(--text-primary);
+}
+
+.dashboardClose {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: 6px;
+}
+
+.dashboardClose:hover {
+    background: var(--dashboard-close-hover);
+    color: var(--text-primary);
+}
+
+.dashboardBody {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    gap: 4px;
+    padding: 0 4px 4px;
+}
+
+.dashboardList {
+    width: 260px;
+    flex-shrink: 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px;
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.dashboardList::-webkit-scrollbar {
+    display: none;
+}
+
+/* Narrow windows: give the detail panel the room instead of the list. */
+@media (max-width: 720px) {
+    .dashboardList {
+        width: 180px;
+    }
+}
+
+.dashboardListRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--text-primary);
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.dashboardListRow:hover {
+    background: var(--row-hover);
+}
+
+.dashboardListRow.selected {
+    background: var(--dashboard-tab-active-bg);
+    color: var(--text-primary);
+}
+
+.dashboardListAdd {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 10px;
+    padding: 9px 14px;
+    border: 1px dashed var(--border-primary);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text-secondary);
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.dashboardListAdd:hover {
+    background: var(--row-hover);
+    color: var(--text-primary);
+}
+
+.dashboardDetail {
+    flex: 1;
+    min-width: 0;
+    overflow-y: auto;
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--dashboard-card-bg);
+    scrollbar-width: none;
+}
+
+.dashboardDetail::-webkit-scrollbar {
+    display: none;
+}
+
+.pluginsPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.appConfigDetail {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* App-config detail header: app icon tile + label, real title weight
+   instead of the old 11px uppercase mini-label, Refresh pinned right. */
+.appConfigHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.appConfigHeaderIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border: none;
+    padding: 0;
+    border-radius: 7px;
+    color: var(--text-secondary);
+    background: var(--bg-tertiary);
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+}
+
+.appConfigHeaderIcon:hover {
+    background: var(--icon-btn-hover);
+    color: var(--text-primary);
+}
+
+.appConfigHeaderTitleEdit {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Rest title reads as plain text — no box, no fill. The pencil (revealed on
+   hover) is the only "editable" affordance, so a background would be noise. */
+/* Rest + edit share IDENTICAL box metrics (height/line-height/font/padding/
+   border) so entering and leaving edit moves nothing — zero jump. The pencil
+   (revealed on hover) is the only affordance; edit mode is a bare transparent
+   input with no border and no fill. */
+.appConfigHeaderTitleEdit.inlineEditText,
+.appConfigHeaderTitleEdit.inlineEditInput {
+    box-sizing: border-box;
+    height: 24px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    /* Horizontal padding on BOTH states → text breathes inside the edit ring
+       without moving between rest/edit (same padding both = zero jump). No
+       negative margin: the padding is the gap between the icon and the ring,
+       so the edit ring never sticks to the icon. */
+    padding: 0 8px;
+    border: none;
+    border-radius: 0;
+    background: none;
+    outline: none;
+}
+
+.appConfigHeaderTitleEdit.inlineEditText {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: auto;
+    max-width: 100%;
+    cursor: pointer;
+}
+
+.appConfigHeaderTitleEdit.inlineEditText:hover {
+    background: none;
+    text-decoration: none;
+}
+
+.appConfigHeaderTitleEdit.inlineEditText:hover .inlineEditPencil,
+.appConfigHeaderTitleEdit.inlineEditText:focus-visible .inlineEditPencil {
+    opacity: 0.8;
+}
+
+.appConfigHeaderTitleEdit.inlineEditInput {
+    display: inline-block;
+    width: auto;
+    min-width: 120px;
+    max-width: 100%;
+    /* Edit highlight via box-shadow, NOT border: a border would grow the box
+       and shift the text (jump); box-shadow paints outside the layout box so
+       the title stays put. Intentional exception to the file's no-shadow rule
+       — the only zero-jump way to ring a same-size input. */
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px var(--accent-execution), 0 0 0 4px var(--accent-execution-bg);
+}
+
+.inlineEditPencil {
+    color: var(--text-muted);
+    opacity: 0;
+    flex-shrink: 0;
+    transition: opacity 0.12s;
+}
+
+.configSectionTitle {
+    color: var(--text-settings-group);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.configVersionBadge {
+    background: var(--bg-success-subtle, rgba(52, 199, 89, 0.14));
+    color: var(--text-success, #34c759);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    text-transform: uppercase;
+}
+
+.configHeaderSpacer {
+    flex: 1;
+}
+
+.configRefreshBtn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    padding: 4px 9px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.configRefreshBtn:hover:not(:disabled) {
+    background: var(--settings-item-hover);
+    color: var(--text-primary);
+}
+
+.configRefreshBtn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.configRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    min-height: 34px;
+    padding: 6px 4px;
+    transition: background 0.12s;
+}
+
+.configRow + .configRow {
+    border-top: 1px solid var(--border-settings-item);
+}
+
+.configRow .copyBtn {
+    opacity: 1;
+}
+
+/* No hover affordance on config-row icons — always-on, flat, no box. */
+.configRow .copyBtn:hover {
+    background: transparent;
+    color: var(--text-secondary);
+}
+
+.configKey {
+    color: var(--text-label);
+    min-width: 100px;
+    flex-shrink: 0;
+}
+
+.configVal {
+    flex: 1;
+    min-width: 0;
+    color: var(--text-primary);
+    /* Match the Settings field weight (normal) — the value text was reading
+       heavier than the equivalent controls on the Settings page. */
+    font-weight: 400;
+    word-break: break-word;
+}
+
+/* No "active"/focus ring on the Details inputs & dropdowns — clicking a field
+   should just place the caret, not paint an outline. Scoped to .configVal (the
+   Details rows) so the header title's edit glow and the Settings controls are
+   both untouched. */
+.configVal input:focus,
+.configVal select:focus,
+.configVal .inlineEditInput:focus,
+.configVal .inlineEditText:focus,
+.configVal .inlineEditText:focus-visible,
+.configVal .selectorRowSelect:focus {
+    outline: none;
+    border-color: var(--border-primary);
+    box-shadow: none;
+}
+
+.configEmpty {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* Per-plugin settings block inside the Plugins SectionCard — flat, no nested
+   surface. A small muted label attributes the group's rows to that plugin,
+   separated from the group above by the same divider used between config
+   rows. */
+.pluginSettingsGroup {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-settings-item);
+}
+
+.pluginSettingsGroup:first-of-type {
+    margin-top: 12px;
+}
+
+.pluginSettingsGroupTitle {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 0 14px 4px;
+}
+
+/* .configRow / .envRow as children of .settingsCardGroup (App-config detail
+   Environments/Details sections): rows stay fully transparent — the card
+   itself supplies the fill+border, dividers come only from
+   --border-settings-item between siblings — per the flat/no-nested-surface
+   rule. Only the side padding grows to 14px, matching .settingsCardGroup >
+   .settingsItem. */
+.settingsCardGroup > .configRow,
+.settingsCardGroup > .envRow {
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+.configVersion {
+    border-top: 1px solid var(--border-settings-item);
+    padding-top: 6px;
+    margin-top: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.configVersion:first-child {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.configVersionTitle {
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.versionScanBtn {
+    flex-shrink: 0;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 5px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.versionScanBtn:hover:not(:disabled) {
+    background: var(--settings-item-hover);
+    color: var(--text-primary);
+}
+
+.versionScanBtn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.envRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 34px;
+    font-size: 11px;
+    cursor: pointer;
+    padding: 6px 4px;
+    transition: background 0.12s;
+}
+
+.envRow + .envRow {
+    border-top: 1px solid var(--border-settings-item);
+}
+
+.envRow:hover {
+    background: var(--row-hover);
+}
+
+.envRow.disabled .envName,
+.envRow.disabled .envCmd {
+    opacity: 0.4;
+}
+
+/* Toggle previews the inherited global pattern on the right when active. */
+.envToggleRow .envCmd {
+    color: var(--text-muted);
+}
+
+/* Filter cap: the "Use global default" + regex rows sit as the top rows of
+   the same card as the script list (not a detached box), tinted to read as
+   a distinct header cap. */
+.filterCapRow {
+    background: var(--bg-secondary);
+}
+
+/* The card has no overflow:hidden (tooltips must escape it), so a filled or
+   hovered first/last row would paint square corners over its rounded border —
+   round those rows to the card's inner radius (10px card - 1px border). */
+.settingsCardGroup > :first-child {
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+.settingsCardGroup > :last-child {
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+.filterRegexWrap {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+}
+
+.filterRegexInput {
+    flex: 1;
+    padding-right: 28px;
+}
+
+.filterRegexClearBtn {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    border-radius: 5px;
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+}
+
+.filterRegexClearBtn:hover {
+    background: var(--row-hover);
+    color: var(--text-secondary);
+}
+
+.envCheckbox {
+    flex-shrink: 0;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    margin: 0;
+    border-radius: 50%;
+    border: 1.5px solid var(--border-primary);
+    background: transparent;
+    transition: background-color 0.12s, border-color 0.12s;
+}
+
+.envCheckbox:hover:not(:checked):not(:disabled) {
+    border-color: var(--text-secondary);
+}
+
+.envCheckbox:checked {
+    background-color: var(--accent-execution);
+    border-color: var(--accent-execution);
+}
+
+.envCheckbox:focus-visible {
+    outline: 2px solid var(--accent-execution);
+    outline-offset: 1px;
+}
+
+.envCheckbox:disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.envName {
+    color: var(--text-primary);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.envCmd {
+    flex: 1;
+    min-width: 0;
+    color: var(--env-cmd-text);
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 10px;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.configValMono {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+}
+
+/* Text and input share IDENTICAL box metrics (flex:1, same height/padding/
+   border-width) so clicking to edit swaps them in place with zero layout
+   shift. Both fill the value column. */
+.inlineEditText,
+.inlineEditInput {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    box-sizing: border-box;
+    font: inherit;
+    font-size: 13px;
+    /* AFTER `font: inherit` — the font shorthand resets line-height to
+       `normal`, so this must follow it to vertically center the text. */
+    line-height: 34px;
+    color: var(--text-primary);
+}
+
+.inlineEditText {
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.inlineEditText:hover {
+    border-color: var(--border-primary);
+    background: var(--bg-secondary);
+    text-decoration: underline dotted;
+}
+
+.inlineEditText:focus-visible {
+    outline: none;
+}
+
+.inlineEditInput {
+    background: var(--bg-primary);
+    border-color: var(--border-primary);
+    width: 100%;
+}
+
+.inlineEditInput:focus {
+    outline: none;
+}
+
+.inlineEditInput::placeholder {
+    color: var(--text-muted);
+}
+
+.inlineEditText--placeholder {
+    color: var(--text-muted);
+}
+
+/* SelectorRow's <select> shares the same box metrics as .inlineEditInput
+   so it lines up with other settingsItem value controls. */
+.selectorRowSelect {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 36px;
+    line-height: 34px;
+    padding: 0 12px;
+    border: 1px solid var(--border-primary);
+    border-radius: 7px;
+    box-sizing: border-box;
+    font: inherit;
+    font-size: 13px;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+}
+
+.selectorRowSelect:focus {
+    outline: 2px solid var(--border-primary);
+    outline-offset: 1px;
+    border-color: var(--border-primary);
+}
+
+.selectorRowSelect--placeholder {
+    color: var(--cfg-status);
+}
+
+/* Placement picker: two schematic mockup cards (List / Dock) replacing the
+   plain <select>. Active state uses a box-shadow ring — never a border — so
+   selecting a card doesn't grow the box or shift layout, matching
+   .appConfigHeaderTitleEdit.inlineEditInput's edit-glow convention. */
+.placementPicker {
+    display: flex;
+    gap: 8px;
+}
+
+.placementCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: var(--bg-tertiary);
+    border: none;
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font: inherit;
+}
+
+.placementCard:hover {
+    background: var(--icon-btn-hover);
+}
+
+.placementCard.active {
+    box-shadow: 0 0 0 1px var(--accent), 0 0 0 4px var(--accent-bg);
+}
+
+.placementCard.active .placementLabel {
+    color: var(--text-primary);
+}
+
+.placementMockup {
+    width: 60px;
+    height: 42px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-settings-item);
+    border-radius: 6px;
+    background: var(--bg-primary);
+    overflow: hidden;
+}
+
+.placementMockupHeader {
+    flex-shrink: 0;
+    height: 5px;
+    background: var(--bg-tertiary);
+}
+
+.placementMockupBody {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    padding: 4px 5px;
+}
+
+.placementMockupRow {
+    flex-shrink: 0;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--accent);
+}
+
+.placementMockupDockStrip {
+    flex-shrink: 0;
+    height: 8px;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 0 4px;
+    background: var(--accent-bg);
+}
+
+.placementMockupDockIcon {
+    width: 4px;
+    height: 4px;
+    border-radius: 1px;
+    background: var(--accent);
+}
+
+.placementLabel {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.dependsEditor {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    min-height: 20px;
+}
+
+.depChip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 10px;
+    padding: 0 4px 0 8px;
+    height: 20px;
+    line-height: 18px;
+    font-size: 12px;
+    color: var(--text-primary);
+}
+
+.depChipRemove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.depChipRemove:hover {
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+}
+
+.depAdd {
+    display: inline-flex;
+    align-items: center;
+    height: 20px;
+    line-height: 18px;
+    padding: 0 20px 0 8px;
+    font: inherit;
+    font-size: 12px;
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M1 1l3 3 3-3' fill='none' stroke='%23888' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 7px center;
+    border: 1px solid var(--border-primary);
+    border-radius: 10px;
+    box-sizing: border-box;
+    appearance: none;
+    cursor: pointer;
+}
+
+.depPopover {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    z-index: 20;
+    width: 200px;
+    background: var(--popover-bg);
+    border: 1px solid var(--popover-border);
+    outline: 1px solid var(--popover-ring);
+    border-radius: 8px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.depPopover--up {
+    top: auto;
+    bottom: calc(100% + 4px);
+}
+
+.depSearch {
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-size: 12px;
+    font: inherit;
+}
+
+.depSearch:focus {
+    outline: none;
+    border-color: var(--text-secondary);
+}
+
+.depList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 180px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.depListItem {
+    padding: 5px 8px;
+    font-size: 12px;
+    color: var(--text-primary);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.depListItem.active {
+    background: var(--popover-item-hover);
+}
+
+.depListEmpty {
+    padding: 5px 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.scanConfirmBtn {
+    align-self: flex-start;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.scanConfirmBtn:hover {
+    background: var(--settings-item-hover);
+}
+
+.scanConfirmBtn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.scanConfirmBtnInstalled {
+    color: var(--text-settings-group);
+    opacity: 0.7;
+}
+
+.deleteAppSection {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    padding-top: 14px;
+    margin-top: 4px;
+    border-top: 1px solid var(--border-secondary);
+}
+
+.deleteAppHint {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-right: auto;
+}
+
+.dangerBtn {
+    background: var(--bg-tertiary);
+    color: var(--dot-error);
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.dangerBtn:hover {
+    border-color: var(--dot-error);
+}
+
+.dangerBtn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.dangerBtn.ghost {
+    background: transparent;
+    border-color: transparent;
+}
+
+.dangerBtn.ghost:hover {
+    border-color: var(--dot-error);
+}
+
+.scanChecklist {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.scanItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    padding: 4px 0;
+    cursor: pointer;
+}
+
+.scanItemName {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.scanItemCmd {
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.dropOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(62, 207, 107, 0.08);
+    border: 2px dashed var(--dot-running);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+    pointer-events: none;
+}
+
+.dropOverlayText {
+    color: var(--text-primary);
+    font-size: 15px;
+    font-weight: 600;
+    background: var(--bg-secondary);
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--border-primary);
+}
+
+.importOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+}
+
+.importProposal {
+    width: 420px;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.importHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.importTitle {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.importLoading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.importBody {
+    padding: 14px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.importFields {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.importError {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--text-muted);
+}
+
+.importError > svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.importErrorText {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.importErrorTitle {
+    color: var(--text-primary);
+    font-size: 12px;
+}
+
+.importErrorDetail {
+    font-size: 11px;
+    word-break: break-all;
+}
+
+.importField {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+}
+
+.importField input {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+
+/* generic modal overlay/card — install preview, confirmations */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1300;
+}
+
+.modalCard {
+    width: 90%;
+    max-width: 420px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modalTitle {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.modalRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-primary);
+}
+
+.modalRow code {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 11px;
+    word-break: break-all;
+}
+
+.modalDanger {
+    border-left: 2px solid var(--error-text);
+    background: rgba(255, 138, 138, 0.08);
+    padding: 6px 8px;
+    border-radius: 4px;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.modalBtn {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.modalBtn:hover:not(:disabled) {
+    background: var(--settings-item-hover);
+}
+
+.modalBtn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.modalBtn.danger {
+    background: var(--toggle-on);
+    color: var(--toggle-text);
+    border-color: var(--toggle-on);
+}
+
+.modalBtn.danger:hover:not(:disabled) {
+    filter: brightness(1.12);
+}
+
+/* Affirmative fill for confirm slots whose action is the safe one (settings
+   import confirms Merge) — .danger's red would read as "this wipes things". */
+.modalBtn.primary {
+    background: var(--accent-execution);
+    color: var(--toggle-text);
+    border-color: var(--accent-execution);
+}
+
+.modalBtn.primary:hover:not(:disabled) {
+    filter: brightness(1.12);
+}
+
+/* The destructive alternative when it sits in the SECONDARY slot: outlined,
+   not filled, so it stays reachable without competing with the safe default. */
+.modalBtn.destructive {
+    color: var(--error-text);
+    border-color: var(--error-text);
+}
+
+/* plugin catalog section */
+.catalogSection {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.catalogItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 13px;
+    font-size: 12px;
+}
+
+.catalogItem + .catalogItem {
+    border-top: 1px solid var(--border-settings-item);
+}
+
+.catalogDesc {
+    color: var(--text-muted);
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* dock — square app-launcher tiles (task-11). New pattern: no existing square-tile
+   CSS to reskin before this. */
+.dockBar {
+    display: flex;
+    flex-shrink: 0;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 0 4px 4px;
+    padding: 10px 14px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* sit above .list so scrolled rows tuck under the dock instead of hard-clipping */
+    position: relative;
+    z-index: 2;
+}
+
+.dockBar::-webkit-scrollbar {
+    display: none;
+}
+
+.appTile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    width: 44px;
+}
+
+.appTileMainWrap {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.appTileMain {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.appTileMain:hover:not(:disabled) {
+    background: var(--settings-item-hover);
+}
+
+.appTileMain.on {
+    border-color: var(--dot-running);
+}
+
+.appTileMain:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+/* Dock status indicator — a filled badge, not the hollow ring the base `.dot` draws
+   for list rows: over a 20px icon a ring lets the glyph's strokes read straight
+   through it. On a 6px border-box a 3px border collapses into a solid disc, so the
+   status colour keeps coming from .dot.running/.unhealthy/… (they set border-color)
+   instead of being duplicated here. The box-shadow is a halo in the tile's own
+   background, which is what separates the badge from whatever it overlaps. The 3px
+   inset pushes it as far into the corner as the 10px border-radius allows — the
+   halo's outer corner lands 10.25 from the arc centre, a quarter-pixel proud of the
+   r=10 arc and invisible at this size; going tighter starts to read as clipped. */
+.appTileMain .dot {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 6px;
+    height: 6px;
+    margin: 0;
+    border-width: 3px;
+    box-shadow: 0 0 0 1.25px var(--bg-tertiary);
+}
+
+.appTileMain:hover:not(:disabled) .dot {
+    box-shadow: 0 0 0 1.25px var(--settings-item-hover);
+}
+
+.appTileGlyph {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+/* Dock tile icon — 24px in a 48px tile (half), which matches the optical width the
+   initials already occupy (~25px measured), so an icon tile and an initials tile carry
+   the same visual weight. A lighter stroke than lucide's default 2 keeps it from reading
+   heavier than the initials it replaces at this size. */
+.appTileIcon {
+    stroke-width: 1.75;
+}
+
+.appTileLabel {
+    font-size: 9px;
+    color: var(--text-secondary);
+    max-width: 44px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+/* one or more plugin-authored dock badges attached to a tile — icon-only, so the
+   PluginSlot label text is hidden here without touching .pluginBtn/.switch themselves */
+.appTileBadges {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    display: flex;
+    gap: 2px;
+}
+
+.appTileBadges .pluginBtn {
+    padding: 2px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+}
+
+.appTileBadges .pluginBtn span,
+.appTileBadges .switchLabel {
+    display: none;
+}
+
+.appTileBadges .switch {
+    gap: 0;
+}
+
+
+/* ── App context menu ("Organize this item") ─────────────────────────────
+   A panel, not a plain label list: the group card carries membership marks,
+   a "Current" badge and a trailing add/remove affordance per row, so chrome
+   lives here rather than in Popover's shared inline style (which the portal
+   still supplies for position/size — this file must not fight it). */
+.organizeMenu {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.organizeBody {
+    padding: 8px 10px;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+.organizeSectionLabel {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 2px 2px 6px;
+}
+
+/* Same label, used to open a section further down the panel — needs the
+   breathing room the first one gets from the popover's own top padding. */
+.organizeSectionLabel.spaced {
+    padding-top: 20px;
+}
+
+.organizeCard {
+    border: 1px solid var(--popover-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.organizeGroupRow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    min-height: 34px;
+    padding: 0 10px;
+    border: none;
+    border-bottom: 1px solid var(--popover-border);
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 0.82rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.organizeGroupRow:last-child {
+    border-bottom: none;
+}
+
+.organizeGroupRow:hover {
+    background: var(--popover-item-hover);
+}
+
+.organizeGroupRow.member {
+    font-weight: 500;
+}
+
+/* Membership mark — an empty ring that fills with the running-state green
+   when the app belongs to the group. */
+.organizeMark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1.5px var(--popover-border);
+    color: transparent;
+    flex-shrink: 0;
+    transition: background 0.12s, box-shadow 0.12s;
+}
+
+.organizeMark.checked {
+    background: var(--accent-execution);
+    box-shadow: none;
+    color: #fff;
+}
+
+.organizeGroupName {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.organizeBadge {
+    flex-shrink: 0;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: var(--accent-execution-bg);
+    color: var(--accent-execution);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.organizeRowAction {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.organizeGroupRow:hover .organizeRowAction {
+    color: var(--text-primary);
+}
+
+.organizeGroupRow:hover .organizeRowAction.danger {
+    color: var(--dot-error);
+}
+
+.organizeNewGroup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    min-height: 32px;
+    margin-top: 8px;
+    border: 1px dashed var(--popover-border);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--accent-execution);
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.organizeNewGroup:hover {
+    background: var(--popover-item-hover);
+}
+
+.organizeRule {
+    height: 1px;
+    background: var(--popover-border);
+    margin: 8px 0;
+}
+
+.organizeRow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    min-height: 32px;
+    padding: 0 6px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 0.82rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.organizeRow:hover {
+    background: var(--popover-item-hover);
+}
+
+.organizeRow.asButton:hover .organizeRowLabel,
+.organizeRow.asButton:hover .organizeRowChevron {
+    color: var(--text-primary);
+}
+
+/* App settings closes the menu — pinned last, set off from the rows above. */
+.organizeRow.appSettingsRow {
+    margin-top: 8px;
+}
+
+.organizeRowIcon {
+    flex-shrink: 0;
+    color: var(--text-secondary);
+}
+
+.organizeRowLabel {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.organizeRowChevron {
+    flex-shrink: 0;
+    color: var(--text-muted);
+}
+
+.organizeRow .switch {
+    gap: 0;
+    flex-shrink: 0;
+}
+
+/* Favorite is the star's own state, so its switch tracks the star colour
+   instead of the app-wide green "on". */
+.organizeRow .switch input:checked + .slider {
+    background: var(--star-active);
+}
+
+/* Settings already sits in a padded .dashboardDetail card in the Workspace
+   window; its own launcher padding on top of that doubled the inset. */
+.dashboardDetail > .settings {
+    padding: 0;
+}
+
+/* Settings → Appearance → Tint */
+.tintPicker {
+    display: flex;
+    gap: 6px;
+}
+
+.tintSwatch {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    cursor: pointer;
+    outline: 1px solid var(--border-primary);
+    outline-offset: 0;
+}
+
+.tintSwatch.active {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 1px;
+}
+
+/* each swatch shows the tint's dark glass with its accent as the center dot */
+.tintSwatch[data-swatch="green"]  { background: radial-gradient(circle, #4fd67d 0 4px, #1f5a3f 5px); }
+.tintSwatch[data-swatch="ocean"]  { background: radial-gradient(circle, #f7b49c 0 4px, #1c2f66 5px); }
+.tintSwatch[data-swatch="cherry"] { background: radial-gradient(circle, #ff5c7a 0 4px, #6e0f28 5px); }
+.tintSwatch[data-swatch="orange"] { background: radial-gradient(circle, #ff8a3d 0 4px, #6a3214 5px); }
+.tintSwatch[data-swatch="violet"] { background: radial-gradient(circle, #b98cff 0 4px, #43207e 5px); }
+
+/* Shown behind every menu/picker popover: dims the window (no blur, so the
+   anchor stays readable) and the popover reads as the thing in focus. Rounded like .app / .dashboard so the
+   transparent window corners stay transparent. */
+.popoverBackdrop {
+    position: fixed;
+    inset: 0;
+    border-radius: 10px;
+    pointer-events: none;
+    background: var(--popover-backdrop);
+    animation: popoverBackdropIn 0.12s ease-out;
+}
+
+@keyframes popoverBackdropIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .popoverBackdrop { animation: none; }
+}
+
+.modalOverlay,
+.importOverlay {
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+}
+
+:root {
+    --popover-backdrop: rgba(0, 0, 0, 0.22);
+}
+
+html[data-theme="light"] {
+    --popover-backdrop: rgba(20, 40, 30, 0.10);
+}
+
+/* ============================================================
+ * Glass style (Settings → Appearance → Style)
+ * The window background becomes a tinted gradient (--glass-wall). On macOS
+ * and Windows the window also gets the OS blur (data-native-blur, set by
+ * useTheme), so the tint is drawn semi-transparent over the blurred desktop;
+ * elsewhere it stays opaque. Panels and cards are translucent white layers.
+ * ============================================================ */
+
+html[data-tinted] {
+    --glass-alpha: 1;
+    /* One smooth diagonal flow (the same 160deg as the Solid dark shell)
+       from a lighter tint at the top-left to a deeper one at the bottom-
+       right, plus a soft wide light from above. No grain, no hard spots. */
+    --glass-wall:
+        radial-gradient(120% 70% at 30% -10%, rgb(var(--tint-glow-a) / 0.32), transparent 65%),
+        linear-gradient(160deg, rgb(var(--tint-glow-a) / 0.40) 0%, transparent 45%, transparent 60%, rgb(var(--tint-glow-b) / 0.45) 100%),
+        rgb(var(--tint-base) / var(--glass-alpha));
+
+    --bg-primary: rgba(255, 255, 255, 0.07);
+    --bg-secondary: rgba(255, 255, 255, 0.05);
+    --bg-tertiary: rgba(255, 255, 255, 0.08);
+    --bg-list: transparent;
+    --bg-settings-card: transparent;
+    --border-primary: rgba(255, 255, 255, 0.12);
+    --border-secondary: rgba(255, 255, 255, 0.09);
+    --border-settings: rgba(255, 255, 255, 0.12);
+    --border-settings-item: rgba(255, 255, 255, 0.08);
+    --settings-item-hover: rgba(255, 255, 255, 0.10);
+    /* readable on every tint: WCAG AA (4.5:1) for small text */
+    --text-primary: #f4f6f5;
+    --text-secondary: rgba(255, 255, 255, 0.80);
+    --text-muted: rgba(255, 255, 255, 0.72);
+    --text-label: rgba(255, 255, 255, 0.84);
+    --env-cmd-text: rgba(255, 255, 255, 0.72);
+    --text-settings-group: rgba(255, 255, 255, 0.70);
+    --text-group-header: rgba(255, 255, 255, 0.70);
+    --quit-btn-text: #ff9a9a;
+    --tooltip-bg: rgb(var(--tint-base) / 0.96);
+    --tooltip-border: rgba(255, 255, 255, 0.14);
+    /* opaque: menus, pickers and dialogs must never let content show through */
+    --popover-bg: color-mix(in srgb, rgb(var(--tint-base)) 90%, #ffffff);
+    --popover-border: rgba(255, 255, 255, 0.14);
+    --popover-border-top: rgba(255, 255, 255, 0.24);
+    --popover-ring: transparent;
+    --popover-item-hover: rgba(255, 255, 255, 0.10);
+    --dashboard-shell: var(--glass-wall);
+    --dashboard-card-bg: rgba(255, 255, 255, 0.05);
+    --dashboard-tab-track: rgba(255, 255, 255, 0.07);
+    --dashboard-tab-active-bg: rgba(255, 255, 255, 0.16);
+    --glass-seg-active: rgba(255, 255, 255, 0.13);
+    --switch-slider-off: rgba(255, 255, 255, 0.20);
+    --switch-slider-on: var(--tint-accent);
+    --switch-dot: #ffffff;
+    --toggle-track-off: rgba(255, 255, 255, 0.20);
+    --toggle-track-on: var(--tint-accent);
+    --toggle-thumb: #ffffff;
+    --group-btn-active: var(--tint-accent);
+    --group-btn-active-bg: color-mix(in srgb, var(--tint-accent) 16%, transparent);
+    /* one accent everywhere, so section icons, chips, pickers and the
+       placement cards all match the tint instead of the solid theme's
+       per-section green/blue/teal */
+    --accent: var(--tint-accent);
+    --accent-ink: #14100e;
+    --accent-bg: color-mix(in srgb, var(--tint-accent) 16%, transparent);
+    --accent-execution: var(--tint-accent);
+    --accent-execution-bg: var(--accent-bg);
+    --accent-environment: var(--tint-accent);
+    --accent-environment-bg: var(--accent-bg);
+    --accent-storage: var(--tint-accent);
+    --accent-storage-bg: var(--accent-bg);
+    --chip-version-text: var(--tint-accent);
+    --chip-version-label: color-mix(in srgb, var(--tint-accent) 60%, transparent);
+    --chip-version-hover-bg: var(--accent-bg);
+    --chip-env-text: var(--tint-accent);
+    --chip-env-label: color-mix(in srgb, var(--tint-accent) 60%, transparent);
+    --chip-env-hover-bg: var(--accent-bg);
+}
+
+html[data-style="glass"][data-native-blur] {
+    --glass-alpha: 0.72;
+}
+
+html[data-tinted][data-theme="light"] {
+    --accent-ink: #ffffff;
+    --glass-wall:
+        radial-gradient(120% 70% at 30% -10%, rgb(var(--tint-glow-a) / 0.45), transparent 65%),
+        linear-gradient(160deg, rgb(var(--tint-glow-a) / 0.55) 0%, transparent 45%, transparent 60%, rgb(var(--tint-glow-b) / 0.6) 100%),
+        rgb(var(--tint-base) / var(--glass-alpha));
+
+    --bg-primary: rgba(255, 255, 255, 0.62);
+    --bg-secondary: rgba(255, 255, 255, 0.45);
+    --bg-tertiary: rgba(20, 40, 30, 0.06);
+    --border-primary: rgba(20, 40, 30, 0.10);
+    --border-secondary: rgba(20, 40, 30, 0.08);
+    --border-settings: rgba(20, 40, 30, 0.10);
+    --border-settings-item: rgba(20, 40, 30, 0.07);
+    --settings-item-hover: rgba(255, 255, 255, 0.8);
+    --text-primary: #141a17;
+    --text-secondary: #3c4842;
+    --text-muted: #525d57;
+    --text-label: #333d38;
+    --env-cmd-text: #525d57;
+    --text-settings-group: #46524c;
+    --text-group-header: #46524c;
+    --quit-btn-text: #b42323;
+    --tooltip-bg: #1f2430;
+    --tooltip-border: #1f2430;
+    --popover-bg: #ffffff;
+    --popover-border: rgba(20, 40, 30, 0.12);
+    --popover-border-top: rgba(255, 255, 255, 0.9);
+    --popover-item-hover: rgba(20, 40, 30, 0.06);
+    --dashboard-card-bg: rgba(255, 255, 255, 0.55);
+    --dashboard-tab-track: rgba(20, 40, 30, 0.06);
+    --dashboard-tab-active-bg: rgba(255, 255, 255, 0.9);
+    --glass-seg-active: rgba(255, 255, 255, 0.9);
+    --switch-slider-off: rgba(20, 40, 30, 0.16);
+    --toggle-track-off: rgba(20, 40, 30, 0.16);
+}
+
+html[data-style="glass"][data-theme="light"][data-native-blur] {
+    --glass-alpha: 0.6;
+}
+
+/* Tints: base color of the window, two glow colors, and the accent used by
+   switches and active controls. Triplets so the alpha can vary. */
+html[data-tinted][data-tint="green"]  { --tint-base: 16 40 31;  --tint-glow-a: 40 104 74;   --tint-glow-b: 78 112 52;   --tint-accent: #4fd67d; }
+/* Ocean dark: night navy, like blue suede, lit from above with a softer
+   blue, and a warm peach accent (balance taken from the user's reference) */
+html[data-tinted][data-tint="ocean"]  { --tint-base: 24 38 68;  --tint-glow-a: 62 98 156;   --tint-glow-b: 30 52 98;    --tint-accent: #f7b49c; }
+html[data-tinted][data-tint="cherry"] { --tint-base: 40 9 18;   --tint-glow-a: 178 26 64;   --tint-glow-b: 96 10 32;    --tint-accent: #ff5c7a; }
+html[data-tinted][data-tint="orange"] { --tint-base: 28 21 18;  --tint-glow-a: 194 84 26;   --tint-glow-b: 110 48 20;   --tint-accent: #ff8a3d; }
+html[data-tinted][data-tint="violet"] { --tint-base: 34 20 72;  --tint-glow-a: 176 74 208;  --tint-glow-b: 75 31 138;   --tint-accent: #b98cff; }
+
+html[data-tinted][data-theme="light"][data-tint="green"]  { --tint-base: 236 244 239; --tint-glow-a: 186 228 203; --tint-glow-b: 205 220 246; --tint-accent: #1d7a3d; }
+/* Ocean light: clear sky over sea-foam */
+html[data-tinted][data-theme="light"][data-tint="ocean"]  { --tint-base: 233 245 252; --tint-glow-a: 150 212 246; --tint-glow-b: 182 234 232; --tint-accent: #1477c2; }
+html[data-tinted][data-theme="light"][data-tint="cherry"] { --tint-base: 252 239 241; --tint-glow-a: 248 172 190; --tint-glow-b: 244 204 214; --tint-accent: #c2183f; }
+html[data-tinted][data-theme="light"][data-tint="orange"] { --tint-base: 250 241 233; --tint-glow-a: 255 196 150; --tint-glow-b: 246 222 200; --tint-accent: #b8520f; }
+html[data-tinted][data-theme="light"][data-tint="violet"] { --tint-base: 243 238 250; --tint-glow-a: 214 192 246; --tint-glow-b: 238 204 240; --tint-accent: #7a45d1; }
+
+html[data-tinted] .app,
+html[data-tinted] .loading {
+    background: var(--glass-wall);
+}
+
+html[data-tinted] .segBtn.active {
+    background: var(--glass-seg-active);
+}
+
+html[data-style="glass"] .popoverSurface {
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    backdrop-filter: blur(24px) saturate(1.4);
+}
+
+html[data-tinted] .sectionCardHeaderAction .pickerTrigger {
+    background: var(--bg-primary);
+}
+
+html[data-style="glass"] .depPopover {
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    backdrop-filter: blur(24px) saturate(1.4);
+}
+
+html[data-theme="light"] .tintSwatch[data-swatch="green"]  { background: radial-gradient(circle, #23944a 0 4px, #bfe5cf 5px); }
+html[data-theme="light"] .tintSwatch[data-swatch="ocean"]  { background: radial-gradient(circle, #1477c2 0 4px, #a9dbf7 5px); }
+html[data-theme="light"] .tintSwatch[data-swatch="cherry"] { background: radial-gradient(circle, #c2183f 0 4px, #f8bfcc 5px); }
+html[data-theme="light"] .tintSwatch[data-swatch="orange"] { background: radial-gradient(circle, #d9661c 0 4px, #ffd2ae 5px); }
+html[data-theme="light"] .tintSwatch[data-swatch="violet"] { background: radial-gradient(circle, #7a45d1 0 4px, #dcc8f7 5px); }
+
+/* ---- Theme polish ---- */
+
+:root {
+    color-scheme: dark;
+    --accent-ink: #ffffff;
+}
+
+html[data-theme="light"] {
+    color-scheme: light;
+}
+
+/* Header brand: the app-icon glyph in the theme accent. */
+.wsBrand {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.wsBrand .lokiMark {
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+/* Row icons (terminal, branch) were muted grey and got lost on tints. */
+.termBtn, .branchBtn {
+    color: var(--text-secondary);
+}
+
+/* Tinted themes: Start uses the tint accent instead of a fixed green, so it
+   belongs to the palette; Stop keeps red as the one warning color. */
+html[data-tinted] .toggle:not(.on),
+html[data-tinted] .groupActionPill.start {
+    background: var(--accent);
+    color: var(--accent-ink);
+}
+
+/* Dialogs sit on the opaque popover surface, never on a translucent panel. */
+html[data-tinted] .modalCard,
+html[data-tinted] .importProposal {
+    background: var(--popover-bg);
+}
+
+/* Native selects: drop the platform's glossy look (it ignored the theme on
+   macOS) and draw a plain field with a chevron. */
+.selectorRowSelect,
+.settingsItemControl > select {
+    -webkit-appearance: none;
+    appearance: none;
+    padding-right: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+html[data-tinted] .selectorRowSelect,
+html[data-tinted] .settingsItemControl > select {
+    background-color: var(--popover-bg);
+}
+
+.selectorRowSelect option,
+.settingsItemControl > select option {
+    background: var(--popover-bg);
+    color: var(--text-primary);
+}
+
+/* The settings gear sat at ~1.5:1 on dark tints. */
+.settingsBtn {
+    color: var(--text-secondary);
+}

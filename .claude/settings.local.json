@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -m 3 -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:9999/api/config)",
+      "Read(//Users/Liubomyr_Kozak/.sheriff/**)",
+      "Read(//Users/Liubomyr_Kozak/.claude/skills/**)",
+      "Read(//Users/Liubomyr_Kozak/.claude/**)"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+From 69e96a6f938686c82b9fdcde2b682b05338b5999 Mon Sep 17 00:00:00 2001
+From: Liubomyr Kozak <liubomyr_kozak@epam.com>
+Date: Tue, 4 Aug 2026 23:47:43 +0300
+Subject: [PATCH] feature-error-mode: degraded response + degraded script
+
+---
+ package.json |  3 ++-
+ server.js    | 10 +++++++++-
+ 2 files changed, 11 insertions(+), 2 deletions(-)
+
+diff --git a/package.json b/package.json
+index 4b802c9..75434c4 100644
+--- a/package.json
++++ b/package.json
+@@ -5,6 +5,7 @@
+   "description": "Loki demo app: minimal zero-dependency HTTP backend.",
+   "main": "server.js",
+   "scripts": {
+-    "start": "node server.js"
++    "start": "node server.js",
++    "degraded": "node server.js"
+   }
+ }
+diff --git a/server.js b/server.js
+index ac2f6ce..c34ec69 100644
+--- a/server.js
++++ b/server.js
+@@ -6,7 +6,15 @@ const server = http.createServer((req, res) => {
+   console.log(`[demo-backend] ${req.method} ${req.url}`);
+   res.setHeader('Access-Control-Allow-Origin', '*');
+   res.setHeader('Content-Type', 'application/json');
+-  res.end(JSON.stringify({ ok: true, from: 'demo-backend', time: new Date().toISOString() }));
++  res.end(
++    JSON.stringify({
++      ok: false,
++      from: 'demo-backend',
++      mode: 'degraded',
++      reason: 'simulated outage',
++      time: new Date().toISOString(),
++    })
++  );
+ });
+ 
+ server.listen(port, () => {
+-- 
+2.50.1 (Apple Git-155)
+

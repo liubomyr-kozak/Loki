@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "global": {
+    "sessionProvider": "detached"
+  },
+  "apps": {
+    "demo-backend": {
+      "label": "Demo Backend",
+      "repoPath": "demo-backend",
+      "startCommand": "node server.js",
+      "appUrl": "http://localhost:4001",
+      "groups": ["Demo Web"],
+      "icon": "server"
+    },
+    "demo-frontend": {
+      "label": "Demo Frontend",
+      "repoPath": "demo-frontend",
+      "startCommand": "node server.js",
+      "appUrl": "http://localhost:4002",
+      "dependsOn": ["demo-backend"],
+      "groups": ["Demo Web"],
+      "icon": "globe"
+    },
+    "demo-worker": {
+      "label": "Demo Worker",
+      "repoPath": "demo-worker",
+      "startCommand": "node worker.js",
+      "groups": ["Demo Background"],
+      "icon": "cpu"
+    }
+  },
+  "groupOrder": ["Demo Web", "Demo Background"]
+}
