@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Loki",
+  "version": "1.1.0",
+  "identifier": "com.liubomyr.loki-orchestrator",
+  "build": {
+    "frontendDist": "../../dist/frontend",
+    "devUrl": "http://localhost:1421",
+    "beforeDevCommand": "yarn desktop:prepare && yarn ui:dev",
+    "beforeBuildCommand": "yarn build:assets"
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "security": {
+      "csp": null
+    },
+    "macOSPrivateApi": true,
+    "windows": [
+      {
+        "label": "launcher",
+        "title": "Loki Launcher",
+        "url": "index.html?window=launcher",
+        "width": 360,
+        "height": 520,
+        "resizable": true,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "visibleOnAllWorkspaces": true,
+        "skipTaskbar": true,
+        "visible": false
+      }
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "copyright": "Copyright (c) 2026 Liubomyr Kozak. MIT License.",
+    "targets": [
+      "app",
+      "dmg",
+      "appimage",
+      "nsis"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "resources": {
+      "../../dist/resources/": "resources/"
+    }
+  }
+}

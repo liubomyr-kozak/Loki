@@ -1,0 +1,55 @@
+From 1c3d2c525f3ea07861ebb99b5d894bb4d15ab56d Mon Sep 17 00:00:00 2001
+From: Liubomyr Kozak <liubomyr_kozak@epam.com>
+Date: Tue, 4 Aug 2026 23:48:07 +0300
+Subject: [PATCH] feature-versioned-api: v2 response with request counter + v2
+ script
+
+---
+ package.json |  3 ++-
+ server.js    | 13 ++++++++++++-
+ 2 files changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/package.json b/package.json
+index 4b802c9..2599234 100644
+--- a/package.json
++++ b/package.json
+@@ -5,6 +5,7 @@
+   "description": "Loki demo app: minimal zero-dependency HTTP backend.",
+   "main": "server.js",
+   "scripts": {
+-    "start": "node server.js"
++    "start": "node server.js",
++    "v2": "node server.js"
+   }
+ }
+diff --git a/server.js b/server.js
+index ac2f6ce..0f2f606 100644
+--- a/server.js
++++ b/server.js
+@@ -2,11 +2,22 @@ const http = require('http');
+ 
+ const port = process.env.PORT || 4001;
+ 
++let requests = 0;
++
+ const server = http.createServer((req, res) => {
++  requests += 1;
+   console.log(`[demo-backend] ${req.method} ${req.url}`);
+   res.setHeader('Access-Control-Allow-Origin', '*');
+   res.setHeader('Content-Type', 'application/json');
+-  res.end(JSON.stringify({ ok: true, from: 'demo-backend', time: new Date().toISOString() }));
++  res.end(
++    JSON.stringify({
++      ok: true,
++      from: 'demo-backend',
++      version: 'v2',
++      time: new Date().toISOString(),
++      extra: { requests },
++    })
++  );
+ });
+ 
+ server.listen(port, () => {
+-- 
+2.50.1 (Apple Git-155)
+

@@ -1,0 +1,8 @@
+{
+  "id": "restart-btn",
+  "name": "Restart Button",
+  "version": "1.0.0",
+  "description": "One-click restart for a running app",
+  "surfaces": ["list", "dock"],
+  "requiresConfig": false
+}

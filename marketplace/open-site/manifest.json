@@ -1,0 +1,8 @@
+{
+  "id": "open-site",
+  "name": "Open Site",
+  "version": "1.0.0",
+  "description": "Opens the app's local dev server in the browser",
+  "surfaces": ["list", "dock"],
+  "requiresConfig": false
+}

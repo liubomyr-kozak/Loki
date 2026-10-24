@@ -1,0 +1,22 @@
+---
+task_id: TASK-YYYY-MM-DD-short-slug
+created_at: YYYY-MM-DD HH:MM
+updated_at: YYYY-MM-DD HH:MM
+status: draft # draft | in_progress | review | blocked | completed — change via task_update.py
+---
+
+# Request
+
+Original ask.
+
+## Assumptions
+
+- list assumptions
+
+## Success Checks
+
+- list observable checks
+
+## Scope Boundaries
+
+- list non-goals

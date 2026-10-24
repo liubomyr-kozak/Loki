@@ -1,0 +1,41 @@
+From 27673cadc45ca91a8a6c757c4b4ede97082bda35 Mon Sep 17 00:00:00 2001
+From: Liubomyr Kozak <liubomyr_kozak@epam.com>
+Date: Tue, 4 Aug 2026 23:49:35 +0300
+Subject: [PATCH] feature-verbose-logging: structured tick logging + verbose
+ script
+
+---
+ package.json | 3 ++-
+ worker.js    | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/package.json b/package.json
+index b9ef684..edeeb0b 100644
+--- a/package.json
++++ b/package.json
+@@ -5,6 +5,7 @@
+   "description": "Loki demo app: minimal zero-dependency background worker (no port).",
+   "main": "worker.js",
+   "scripts": {
+-    "start": "node worker.js"
++    "start": "node worker.js",
++    "verbose": "node worker.js"
+   }
+ }
+diff --git a/worker.js b/worker.js
+index 0677f04..53cffa3 100644
+--- a/worker.js
++++ b/worker.js
+@@ -2,7 +2,8 @@ let tick = 0;
+ 
+ setInterval(() => {
+   tick += 1;
+-  console.log(`[demo-worker] heartbeat #${tick} at ${new Date().toISOString()}`);
++  const payload = { n: tick, ts: new Date().toISOString(), status: 'ok' };
++  console.log(`[demo-worker] tick=${JSON.stringify(payload)}`);
+ }, 2000);
+ 
+ console.log('demo-worker started (no port, background loop) — good example of a headless app in Loki.');
+-- 
+2.50.1 (Apple Git-155)
+
